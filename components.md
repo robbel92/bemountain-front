@@ -17,7 +17,6 @@
     - elevationGain: number
 - **User** (Slice: User)
 - **UI State** (Slice: UI)
-- **Feedback** (Slice: Feedback) // no lo se preguntar
 
 ### Actions
 
@@ -28,7 +27,6 @@
 - filterRoutes()
 - loginUser()
 - logoutUser()
-- provideFeedback()
 - showLoader()
 - hideLoader()
 - openModal()
@@ -69,7 +67,7 @@
 
 ### LoginForm
 
-- Have a own state.
+- Has a own state.
 - Receives a handleOnSubmit action
 - Create a functionOnHandleOnSubmit, calls event.prevent.default(), calls handleOnsubmit(userCredentials) and reset UserCredentials
 - Shows inputs for username and password.
@@ -89,9 +87,9 @@
 
 ### Form
 
-- Have a own state.
-- Receives for props , text for button , optional RouteData and actionOnSubmit.
-- If receives a RouteData from props , set ownState propierties from routeData props
+- Has a own state.
+- Receives from props, text for button , optional RouteData and actionOnSubmit.
+- If receives RouteData from props , set ownState propierties from routeData props
 - Shows inputs fields for the name, author, description, difficulty, distance, ubication, photo, and elevation gain of the Route.
 - Show a button component
 
@@ -108,7 +106,6 @@
 - Renders as many RoutesCARDS as routes are in the collection received
 - Create a deleteActionOnClick(recevies an Id) function who calls removeRoute(receives id) from useRoutes custom hook, and removeRouteActionCreator(id)
 - Create a detailsActionOnSubmit(id) woh navigate to detailsPage
-  ///mira lo de la action de edit
 
 ### RouteCard
 
@@ -117,8 +114,6 @@
 - Show image, name , ubication , distance route data.
 
 - Show a delete Button and edit button
-
-///mira lo de la action de edit
 
 ### DetailRoutePage
 
