@@ -1,7 +1,7 @@
-import Header from "../Header/Header";
+import Layout from "../Layout/Layout";
 
 const App = (): React.ReactElement => {
-  return <Header></Header>;
+  return <Layout />;
 };
 
 export default App;
