@@ -46,6 +46,9 @@ const LoginFormStyled = styled.form`
       padding: 20px 30px;
     }
   }
+  .disabled {
+    opacity: 0.5;
+  }
 `;
 
 export default LoginFormStyled;
