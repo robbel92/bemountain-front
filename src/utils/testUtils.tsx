@@ -6,6 +6,7 @@ import { render } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
 import theme from "../styles/theme";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
+import GlobalStyle from "../styles/GlobalStyle";
 
 export const renderWithProviders = (
   ui: React.ReactElement,
@@ -16,6 +17,7 @@ export const renderWithProviders = (
   const Wrapper = ({ children }: PropsWithChildren): React.ReactElement => {
     return (
       <Provider store={testStore}>
+        <GlobalStyle />
         <ThemeProvider theme={theme}>{children}</ThemeProvider>
       </Provider>
     );
