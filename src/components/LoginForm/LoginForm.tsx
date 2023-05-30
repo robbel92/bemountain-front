@@ -42,7 +42,7 @@ const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
         onChange={onChangeInputs}
         value={userData.username}
       />
-      <label htmlFor="username" hidden>
+      <label htmlFor="password" hidden>
         Password
       </label>
       <input
