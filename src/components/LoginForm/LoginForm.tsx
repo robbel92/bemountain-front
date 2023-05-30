@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { UserCredentials } from "../../store/user/types";
 import LoginFormStyled from "./LoginFormStyled";
 
@@ -6,6 +7,18 @@ interface LoginFormProps {
 }
 
 const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
+  const [userData, setUserData] = useState({
+    username: "",
+    password: "",
+  });
+
+  const onChangeInputs = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserData({
+      ...userData,
+      [event.target.id]: event.target.value,
+    });
+  };
+
   return (
     <LoginFormStyled
       className="form"
@@ -21,8 +34,10 @@ const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
         autoComplete="off"
         type="text"
         id="username"
-        className="form__input__username"
+        className="form__username"
         placeholder="Username"
+        onChange={onChangeInputs}
+        value={userData.username}
       />
       <label htmlFor="username" hidden>
         Password
@@ -31,9 +46,11 @@ const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
         type="password"
         id="password"
         placeholder="Password"
-        className="form__input__password"
+        className="form__password"
+        onChange={onChangeInputs}
+        value={userData.password}
       />
-      <button type="submit" className="form__button__login">
+      <button type="submit" className="form__login">
         LOG IN
       </button>
     </LoginFormStyled>
