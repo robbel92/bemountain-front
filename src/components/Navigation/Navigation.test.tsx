@@ -1,11 +1,11 @@
 import { screen } from "@testing-library/react";
-import { renderWithProviders } from "../../utils/testUtils";
+import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 import Navigation from "./Navigation";
 
 describe("Given a Navigation component", () => {
   describe("When its rendered", () => {
     test("Then it should show 3 navigation links with your image, 'CREATE', 'HOME', 'LOGOUT'", () => {
-      renderWithProviders(<Navigation />);
+      renderWithProviders(wrapWithRouter(<Navigation />));
 
       const imageLinkCreate = screen.getByAltText(
         "icono de un signo de suma que indica crear o añadir"
