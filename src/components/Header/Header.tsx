@@ -8,6 +8,7 @@ const Header = (): React.ReactElement => {
         alt="logo de la web bemount"
         width={280}
         height={80}
+        className="logo__bemount"
       />
     </HeaderStyled>
   );

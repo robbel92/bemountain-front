@@ -4,7 +4,11 @@ import NavigationStyled from "./NavigationStyled";
 const Navigation = (): React.ReactElement => {
   return (
     <NavigationStyled>
-      <NavLink to={"/"} aria-label="link create para crear una nueva ruta">
+      <NavLink
+        to={"/"}
+        aria-label="link create para crear una nueva ruta"
+        className={"logo__create"}
+      >
         <img
           src="/media/crear.svg"
           alt="icono de un signo de suma que indica crear o añadir"
@@ -15,7 +19,7 @@ const Navigation = (): React.ReactElement => {
       <NavLink
         to={"/"}
         aria-label="link home para ir a la home page"
-        className={"home"}
+        className={"logo__home"}
       >
         <img
           src="/media/logo-home.svg"
@@ -27,6 +31,7 @@ const Navigation = (): React.ReactElement => {
       <NavLink
         to={"/"}
         aria-label="link logout para salir de la sesion de tu cuenta"
+        className={"logo__logout"}
       >
         <img
           src="/media/logout.svg"
