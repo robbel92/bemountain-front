@@ -3,9 +3,9 @@ import LoginFormStyled from "./LoginFormStyled";
 const LoginForm = (): React.ReactElement => {
   return (
     <LoginFormStyled className="form">
-      <h1 className="form__title">Log in to enjoy the mountains.</h1>
+      <h1 className="form__title">Log in to enjoy the mountains</h1>
       <label htmlFor="username" hidden>
-        USERNAME
+        Username
       </label>
       <input
         autoComplete="off"
@@ -15,7 +15,7 @@ const LoginForm = (): React.ReactElement => {
         placeholder="Username"
       />
       <label htmlFor="username" hidden>
-        PASSWORD
+        Password
       </label>
       <input
         type="password"
