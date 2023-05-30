@@ -23,15 +23,15 @@ const LoginFormStyled = styled.form`
       box-shadow: none;
       font-weight: 400;
       letter-spacing: 2px;
-      text-align: center;
+
       border-radius: 5px;
       border: 1px solid white;
       font-size: 20px;
       ::placeholder {
-        font-weight: 200;
-        font-size: 20px;
+        font-style: light;
+        font-weight: 100;
+        font-size: 18px;
         color: #ffffff;
-        text-align: center;
       }
     }
     &__login {
