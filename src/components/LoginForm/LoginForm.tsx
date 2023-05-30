@@ -1,8 +1,18 @@
+import { UserCredentials } from "../../store/user/types";
 import LoginFormStyled from "./LoginFormStyled";
 
-const LoginForm = (): React.ReactElement => {
+interface LoginFormProps {
+  actionOnSubmit: (user: UserCredentials) => void;
+}
+
+const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
   return (
-    <LoginFormStyled className="form">
+    <LoginFormStyled
+      className="form"
+      onSubmit={() => {
+        actionOnSubmit;
+      }}
+    >
       <h1 className="form__title">Log in to enjoy the mountains</h1>
       <label htmlFor="username" hidden>
         Username
