@@ -5,8 +5,7 @@ import { PropsWithChildren } from "react";
 import { render } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
 import theme from "../styles/theme";
-import GlobalStyle from "../styles/GlobalStyle";
-import { BrowserRouter } from "react-router-dom";
+import { RouterProvider, createMemoryRouter } from "react-router-dom";
 
 export const renderWithProviders = (
   ui: React.ReactElement,
@@ -16,18 +15,24 @@ export const renderWithProviders = (
 
   const Wrapper = ({ children }: PropsWithChildren): React.ReactElement => {
     return (
-      <>
-        <BrowserRouter>
-          <Provider store={testStore}>
-            <ThemeProvider theme={theme}>
-              <GlobalStyle />
-              {children}
-            </ThemeProvider>
-          </Provider>
-        </BrowserRouter>
-      </>
+      <Provider store={testStore}>
+        <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      </Provider>
     );
   };
 
   render(ui, { wrapper: Wrapper });
+};
+
+export const wrapWithRouter = (ui: React.ReactElement) => {
+  const routes = [
+    {
+      path: "/",
+      element: ui,
+    },
+  ];
+
+  const router = createMemoryRouter(routes);
+
+  return <RouterProvider router={router} />;
 };
