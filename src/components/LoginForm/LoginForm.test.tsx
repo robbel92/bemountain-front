@@ -8,7 +8,7 @@ describe("Given a LoginForm component", () => {
       const usernameLabel = "Username";
       const passwordLabel = "Password";
 
-      renderWithProviders(<LoginForm />);
+      renderWithProviders(<LoginForm actionOnSubmit={() => ({})} />);
 
       const usernameInput = screen.getByLabelText(usernameLabel);
       const passwordInput = screen.getByLabelText(passwordLabel);
@@ -19,7 +19,7 @@ describe("Given a LoginForm component", () => {
     test("Then it should show a heading with test 'Log in to enjoy the mountains'", () => {
       const headingText = "Log in to enjoy the mountains";
 
-      renderWithProviders(<LoginForm />);
+      renderWithProviders(<LoginForm actionOnSubmit={() => ({})} />);
 
       const expectedHeading = screen.getByRole("heading", {
         name: headingText,

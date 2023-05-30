@@ -6,7 +6,6 @@ const HeaderStyled = styled.header`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: #00000080;
 `;
 
 export default HeaderStyled;

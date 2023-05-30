@@ -6,7 +6,7 @@ const LoginPage = (): React.ReactElement => {
   return (
     <LoginPageStyled>
       <Header />
-      <LoginForm />
+      <LoginForm actionOnSubmit={() => ({})} />
     </LoginPageStyled>
   );
 };

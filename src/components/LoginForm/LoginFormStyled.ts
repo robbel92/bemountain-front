@@ -15,8 +15,8 @@ const LoginFormStyled = styled.form`
       text-align: center;
       color: white;
     }
-    &__input__username,
-    &__input__password {
+    &__username,
+    &__password {
       padding: 15px 30px;
       background: transparent;
       color: white;
@@ -26,7 +26,7 @@ const LoginFormStyled = styled.form`
       text-align: center;
       border-radius: 5px;
       border: 1px solid white;
-      font-size: 30px;
+      font-size: 20px;
       ::placeholder {
         font-weight: 200;
         font-size: 20px;
@@ -34,7 +34,7 @@ const LoginFormStyled = styled.form`
         text-align: center;
       }
     }
-    &__button__login {
+    &__login {
       background-color: ${(props) => props.theme.colors.button};
       justify-content: center;
       text-align: center;
@@ -45,6 +45,9 @@ const LoginFormStyled = styled.form`
       font-size: 20px;
       padding: 20px 30px;
     }
+  }
+  .disabled {
+    opacity: 0.5;
   }
 `;
 

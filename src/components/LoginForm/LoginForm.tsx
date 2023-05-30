@@ -1,8 +1,34 @@
+import { useState } from "react";
+import { UserCredentials } from "../../store/user/types";
 import LoginFormStyled from "./LoginFormStyled";
 
-const LoginForm = (): React.ReactElement => {
+interface LoginFormProps {
+  actionOnSubmit: (user: UserCredentials) => void;
+}
+
+const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
+  const [userData, setUserData] = useState({
+    username: "",
+    password: "",
+  });
+
+  const onChangeInputs = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserData({
+      ...userData,
+      [event.target.id]: event.target.value,
+    });
+  };
+
+  const areFillsFull =
+    userData.username.length > 3 && userData.password.length > 3;
+
   return (
-    <LoginFormStyled className="form">
+    <LoginFormStyled
+      className="form"
+      onSubmit={() => {
+        actionOnSubmit;
+      }}
+    >
       <h1 className="form__title">Log in to enjoy the mountains</h1>
       <label htmlFor="username" hidden>
         Username
@@ -11,8 +37,10 @@ const LoginForm = (): React.ReactElement => {
         autoComplete="off"
         type="text"
         id="username"
-        className="form__input__username"
+        className="form__username"
         placeholder="Username"
+        onChange={onChangeInputs}
+        value={userData.username}
       />
       <label htmlFor="username" hidden>
         Password
@@ -21,9 +49,15 @@ const LoginForm = (): React.ReactElement => {
         type="password"
         id="password"
         placeholder="Password"
-        className="form__input__password"
+        className="form__password"
+        onChange={onChangeInputs}
+        value={userData.password}
       />
-      <button type="submit" className="form__button__login">
+      <button
+        type="submit"
+        className={areFillsFull ? "form__login" : "form__login disabled"}
+        disabled={areFillsFull ? false : true}
+      >
         LOG IN
       </button>
     </LoginFormStyled>
