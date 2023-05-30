@@ -26,7 +26,7 @@ const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
     <LoginFormStyled
       className="form"
       onSubmit={() => {
-        actionOnSubmit;
+        actionOnSubmit(userData);
       }}
     >
       <h1 className="form__title">Log in to enjoy the mountains</h1>

@@ -7,7 +7,7 @@ describe("Given a Header component", () => {
     test("Then it should show an image with bemount logo", () => {
       renderWithProviders(wrapWithRouter(<Header />));
 
-      const imageExpected = screen.getByAltText("logo de la web bemount");
+      const imageExpected = screen.getByAltText("bemount web logo");
 
       expect(imageExpected).toBeInTheDocument();
     });

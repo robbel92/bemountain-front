@@ -6,8 +6,9 @@ import LoginForm from "./LoginForm";
 describe("Given a LoginForm component", () => {
   const usernameLabel = "Username";
   const passwordLabel = "Password";
+
   describe("When rendered", () => {
-    test("Then it should show an username and password inputs", () => {
+    test("Then it should show an username and password text fields", () => {
       renderWithProviders(<LoginForm actionOnSubmit={() => ({})} />);
 
       const usernameInput = screen.getByLabelText(usernameLabel);
@@ -16,6 +17,7 @@ describe("Given a LoginForm component", () => {
       expect(usernameInput).toBeInTheDocument();
       expect(passwordInput).toBeInTheDocument();
     });
+
     test("Then it should show a heading with test 'Log in to enjoy the mountains'", () => {
       const headingText = "Log in to enjoy the mountains";
 
@@ -29,6 +31,7 @@ describe("Given a LoginForm component", () => {
       expect(expectedHeading).toBeInTheDocument();
     });
   });
+
   describe("When it is rendered and the user types 'admin' on input username and 'admin' on input password", () => {
     test("Then it should shows inputs with the text typed", async () => {
       const textTypedUsername = "admin";
