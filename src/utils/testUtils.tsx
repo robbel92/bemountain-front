@@ -6,6 +6,7 @@ import { render } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
 import theme from "../styles/theme";
 import GlobalStyle from "../styles/GlobalStyle";
+import { BrowserRouter } from "react-router-dom";
 
 export const renderWithProviders = (
   ui: React.ReactElement,
@@ -16,12 +17,14 @@ export const renderWithProviders = (
   const Wrapper = ({ children }: PropsWithChildren): React.ReactElement => {
     return (
       <>
-        <Provider store={testStore}>
-          <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            {children}
-          </ThemeProvider>
-        </Provider>
+        <BrowserRouter>
+          <Provider store={testStore}>
+            <ThemeProvider theme={theme}>
+              <GlobalStyle />
+              {children}
+            </ThemeProvider>
+          </Provider>
+        </BrowserRouter>
       </>
     );
   };

@@ -6,7 +6,6 @@ describe("Given a Header component", () => {
   describe("When it is rendered", () => {
     test("Then it should show an image with bemount logo", () => {
       renderWithProviders(<Header />);
-      screen.debug();
 
       const imageExpected = screen.getByAltText("logo de la web bemount");
 
