@@ -3,6 +3,7 @@ import styled from "styled-components";
 const NavigationStyled = styled.nav`
   display: flex;
   justify-content: space-between;
+  width: 100%;
   padding: 10px 20px;
   align-items: center;
   box-shadow: 0px 0px 24px 0px #00000047;

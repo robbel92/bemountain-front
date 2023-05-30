@@ -4,20 +4,16 @@ import Navigation from "./Navigation";
 
 describe("Given a Navigation component", () => {
   describe("When its rendered", () => {
-    test("Then it should show 3 navigation links with your image, 'CREATE', 'HOME', 'LOGOUT'", () => {
+    test("Then it should show 2 links with their create and home icons and a button with the log out icon", () => {
       renderWithProviders(wrapWithRouter(<Navigation />));
 
-      const imageLinkCreate = screen.getByAltText(
-        "icono de un signo de suma que indica crear o añadir"
-      );
-      const imageLinkHome = screen.getByAltText("imagen de un logo home");
-      const imageLinkLogout = screen.getByAltText(
-        "icono de una puerta que indica log out"
-      );
+      const linkCreate = screen.getByLabelText("to create page");
+      const linkHome = screen.getByLabelText("to home page");
+      const buttonLogout = screen.getByLabelText("to logout");
 
-      expect(imageLinkCreate).toBeInTheDocument();
-      expect(imageLinkHome).toBeInTheDocument();
-      expect(imageLinkLogout).toBeInTheDocument();
+      expect(linkCreate).toBeInTheDocument();
+      expect(linkHome).toBeInTheDocument();
+      expect(buttonLogout).toBeInTheDocument();
     });
   });
 });
