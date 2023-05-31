@@ -4,7 +4,7 @@ const useLocalStorage = () => {
   };
 
   return {
-    setLocalStorageItem: setLocalStoragekey,
+    setLocalStoragekey,
   };
 };
 

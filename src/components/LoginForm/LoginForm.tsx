@@ -7,10 +7,17 @@ interface LoginFormProps {
 }
 
 const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
-  const [userData, setUserData] = useState({
+  const initialUserCredentials: UserCredentials = {
     username: "",
     password: "",
-  });
+  };
+  const [userData, setUserData] = useState(initialUserCredentials);
+
+  const onSubmitUserData = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    actionOnSubmit(userData);
+    setUserData(initialUserCredentials);
+  };
 
   const onChangeInputs = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUserData({
@@ -22,12 +29,7 @@ const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
   const isDisabled = userData.username && userData.password ? false : true;
 
   return (
-    <LoginFormStyled
-      className="form"
-      onSubmit={() => {
-        actionOnSubmit(userData);
-      }}
-    >
+    <LoginFormStyled className="form" onSubmit={onSubmitUserData}>
       <h1 className="form__title">Log in to enjoy the mountains</h1>
       <label htmlFor="username" hidden>
         Username
