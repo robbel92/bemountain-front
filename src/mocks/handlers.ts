@@ -1,7 +1,6 @@
 import { rest } from "msw";
 import { tokenMock } from "./userMocks/userMocks";
-
-const apiUrl = import.meta.env.VITE_API_URL;
+import { apiUrl } from "../hooks/useUser/useUser";
 
 export const handlers = [
   rest.post(`${apiUrl}user/login`, (_req, res, ctx) => {
