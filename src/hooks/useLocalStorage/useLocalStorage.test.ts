@@ -14,11 +14,11 @@ describe("Given a setLocalStorageKey funcion", () => {
     test("Then it should add the key to localStorage", () => {
       const {
         result: {
-          current: { setLocalStorageItem },
+          current: { setLocalStoragekey },
         },
       } = renderHook(() => useLocalStorage());
 
-      setLocalStorageItem(key, value);
+      setLocalStoragekey(key, value);
 
       expect(localStorage).toHaveProperty(key);
       expect(localStorage.getItem(key)).toBe(value);
