@@ -1,8 +1,11 @@
 const useLocalStorage = () => {
-  const setLocalStorageToken = (token: string) => {
-    localStorage.setItem("token", token);
+  const setLocalStoragekey = (key: string, value: string) => {
+    localStorage.setItem(key, value);
   };
-  return { setLocalStorageToken };
+
+  return {
+    setLocalStorageItem: setLocalStoragekey,
+  };
 };
 
 export default useLocalStorage;
