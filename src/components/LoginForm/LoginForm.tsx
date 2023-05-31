@@ -19,8 +19,7 @@ const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
     });
   };
 
-  const areFillsFull =
-    userData.username.length > 3 && userData.password.length > 3;
+  const isDisabled = userData.username && userData.password ? false : true;
 
   return (
     <LoginFormStyled
@@ -53,11 +52,7 @@ const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
         onChange={onChangeInputs}
         value={userData.password}
       />
-      <button
-        type="submit"
-        className={areFillsFull ? "form__login" : "form__login disabled"}
-        disabled={areFillsFull ? false : true}
-      >
+      <button type="submit" className="form__login" disabled={isDisabled}>
         LOG IN
       </button>
     </LoginFormStyled>

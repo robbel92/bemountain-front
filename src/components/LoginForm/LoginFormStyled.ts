@@ -44,10 +44,11 @@ const LoginFormStyled = styled.form`
       border-radius: 5px;
       font-size: 20px;
       padding: 20px 30px;
+
+      &:disabled {
+        opacity: 0.5;
+      }
     }
-  }
-  .disabled {
-    opacity: 0.5;
   }
 `;
 
