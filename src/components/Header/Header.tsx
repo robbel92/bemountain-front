@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 import HeaderStyled from "./HeaderStyled";
+import { paths } from "../../routers/paths/paths";
 
 const Header = (): React.ReactElement => {
   const { pathname } = useLocation();
@@ -14,7 +15,7 @@ const Header = (): React.ReactElement => {
         height={80}
         className="logo__bemount"
       />
-      {pathname !== "/user/login" && <Navigation />}
+      {pathname !== paths.login && <Navigation />}
     </HeaderStyled>
   );
 };
