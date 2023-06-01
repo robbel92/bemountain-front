@@ -1,7 +1,23 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import NavigationStyled from "./NavigationStyled";
+import { useAppDispatch } from "../../store";
+import { logoutUserActionCreator } from "../../store/user/userSlice";
+import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
+import { paths } from "../../routers/paths/paths";
 
 const Navigation = (): React.ReactElement => {
+  const dispatch = useAppDispatch();
+  const { removeLocalStorageKey } = useLocalStorage();
+  const navigate = useNavigate();
+
+  const logoutOnClick = () => {
+    dispatch(logoutUserActionCreator());
+    removeLocalStorageKey("token");
+    navigate(paths.login, {
+      replace: true,
+    });
+  };
+
   return (
     <NavigationStyled>
       <NavLink to={"/"} aria-label="to create page" className="logo__create">
@@ -20,7 +36,11 @@ const Navigation = (): React.ReactElement => {
           height={40}
         />
       </NavLink>
-      <button aria-label="to logout" className="logo__logout">
+      <button
+        aria-label="to logout"
+        className="logo__logout"
+        onClick={logoutOnClick}
+      >
         <img
           src="/media/logout.svg"
           alt="icon of a door indicating log out"

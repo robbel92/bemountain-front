@@ -9,6 +9,7 @@ import Header from "../../Header/Header";
 import LoginForm from "../../LoginForm/LoginForm";
 import LoginPageStyled from "./LoginPageStyled";
 import { paths } from "../../../routers/paths/paths";
+import Navigation from "../../Navigation/Navigation";
 
 const LoginPage = (): React.ReactElement => {
   const { getUserToken } = useUser();
@@ -31,6 +32,7 @@ const LoginPage = (): React.ReactElement => {
   return (
     <LoginPageStyled>
       <Header />
+      <Navigation />
       <LoginForm actionOnSubmit={loginOnSubmit} />
     </LoginPageStyled>
   );
