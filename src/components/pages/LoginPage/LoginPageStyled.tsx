@@ -5,7 +5,7 @@ const LoginPageStyled = styled.div`
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("/media/background-login-page.webp");
   background-size: cover;
-  gap: 200px;
+  gap: 120px;
   flex-direction: column;
   display: flex;
   background-position: center;

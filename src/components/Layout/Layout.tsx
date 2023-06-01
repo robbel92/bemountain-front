@@ -9,11 +9,13 @@ const Layout = (): React.ReactElement => {
   return (
     <>
       {pathname === paths.login ? (
-        <Outlet />
+        <>
+          <Outlet />
+        </>
       ) : (
         <>
-          <Header />
           <ContainerStyled>
+            <Header />
             <Outlet />
           </ContainerStyled>
         </>
