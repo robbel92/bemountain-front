@@ -25,7 +25,7 @@ describe("Given a setLocalStorageKey funcion", () => {
     });
   });
 });
-describe("Given a removeLocalStorageKey function", () => {
+describe("Given a getLocalStorageKey function", () => {
   describe("When it is invoked with a key", () => {
     test("Then it should return the value of that key", () => {
       const {
@@ -38,6 +38,22 @@ describe("Given a removeLocalStorageKey function", () => {
       const valueKey = getLocalStorageKey(key);
 
       expect(valueKey).toBe(value);
+    });
+  });
+});
+describe("Given a removeLocalStorageKey function ", () => {
+  describe("When it is invoked with a key", () => {
+    test("Then it should remove the key from localStorage", () => {
+      const {
+        result: {
+          current: { removeLocalStorageKey, setLocalStorageKey },
+        },
+      } = renderHook(() => useLocalStorage());
+
+      setLocalStorageKey(key, value);
+      removeLocalStorageKey(key);
+
+      expect(localStorage.getItem(key)).toBe(null);
     });
   });
 });
