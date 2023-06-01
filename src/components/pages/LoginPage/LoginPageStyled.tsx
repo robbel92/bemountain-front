@@ -8,6 +8,7 @@ const LoginPageStyled = styled.div`
   gap: 120px;
   flex-direction: column;
   display: flex;
+  align-items: center;
   background-position: center;
 `;
 
