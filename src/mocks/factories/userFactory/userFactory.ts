@@ -11,7 +11,7 @@ const userDataFactory = Factory.define<UserStateStructure>(() => ({
 
 export const getUserDataMock = (
   withIsLogged?: boolean,
-  data?: UserStateStructure
+  data?: Partial<UserStateStructure>
 ) => {
   const userData = userDataFactory.build(data);
 

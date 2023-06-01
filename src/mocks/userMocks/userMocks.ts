@@ -11,6 +11,10 @@ export const initialUserStateMock: UserStateStructure = getUserDataMock(true, {
   isLogged: false,
 });
 
+export const currentUserStateMock: UserStateStructure = getUserDataMock(true, {
+  isLogged: true,
+});
+
 export const userDataTokenMock: UserTokenStructure = {
   id: "646f6f7baf9a198820caf98a",
   name: "Administrador",
