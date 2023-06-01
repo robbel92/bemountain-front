@@ -14,7 +14,7 @@ const LoginPage = (): React.ReactElement => {
   const { getUserToken } = useUser();
   const { getTokenData } = useToken();
   const navigate = useNavigate();
-  const { setLocalStoragekey } = useLocalStorage();
+  const { setLocalStorageKey } = useLocalStorage();
   const dispatch = useAppDispatch();
 
   const loginOnSubmit = async (userCredentials: UserCredentials) => {
@@ -23,7 +23,7 @@ const LoginPage = (): React.ReactElement => {
     if (token) {
       const userData = await getTokenData(token);
       dispatch(loginUserActionCreator(userData));
-      setLocalStoragekey("token", token);
+      setLocalStorageKey("token", token);
     } else {
       navigate(paths.login, { replace: true });
     }

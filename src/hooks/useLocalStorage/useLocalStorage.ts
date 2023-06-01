@@ -3,16 +3,12 @@ const useLocalStorage = () => {
     localStorage.setItem(key, value);
   };
   const getLocalStorageKey = (key: string) => {
-    localStorage.getItem(key);
+    return localStorage.getItem(key);
   };
 
   return {
-
     setLocalStorageKey,
     getLocalStorageKey,
-
-
-
   };
 };
 
