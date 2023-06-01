@@ -8,14 +8,12 @@ import { loginUserActionCreator } from "../../../store/user/userSlice";
 import Header from "../../Header/Header";
 import LoginForm from "../../LoginForm/LoginForm";
 import LoginPageStyled from "./LoginPageStyled";
-import { paths } from "../../../routers/paths/paths";
-import Navigation from "../../Navigation/Navigation";
 
 const LoginPage = (): React.ReactElement => {
   const { getUserToken } = useUser();
   const { getTokenData } = useToken();
-  const navigate = useNavigate();
   const { setLocalStorageKey } = useLocalStorage();
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const loginOnSubmit = async (userCredentials: UserCredentials) => {
@@ -25,16 +23,16 @@ const LoginPage = (): React.ReactElement => {
       const userData = await getTokenData(token);
       dispatch(loginUserActionCreator(userData));
       setLocalStorageKey("token", token);
-    } else {
-      navigate(paths.login, { replace: true });
+      navigate("/home");
     }
   };
   return (
-    <LoginPageStyled>
-      <Header />
-      <Navigation />
-      <LoginForm actionOnSubmit={loginOnSubmit} />
-    </LoginPageStyled>
+    <>
+      <LoginPageStyled>
+        <Header />
+        <LoginForm actionOnSubmit={loginOnSubmit} />
+      </LoginPageStyled>
+    </>
   );
 };
 

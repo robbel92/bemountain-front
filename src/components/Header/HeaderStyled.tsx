@@ -5,6 +5,7 @@ const HeaderStyled = styled.header`
   padding: 10px 20px;
   justify-content: center;
   flex-direction: column;
+  background-color: transparent;
   align-items: center;
 `;
 

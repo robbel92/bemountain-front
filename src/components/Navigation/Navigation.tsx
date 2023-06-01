@@ -13,9 +13,7 @@ const Navigation = (): React.ReactElement => {
   const logoutOnClick = () => {
     dispatch(logoutUserActionCreator());
     removeLocalStorageKey("token");
-    navigate(paths.login, {
-      replace: true,
-    });
+    navigate(paths.login);
   };
 
   return (
