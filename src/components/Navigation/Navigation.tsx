@@ -3,15 +3,19 @@ import NavigationStyled from "./NavigationStyled";
 import { useAppDispatch } from "../../store";
 import { logoutUserActionCreator } from "../../store/user/userSlice";
 import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
+import { paths } from "../../routers/paths/paths";
 
 const Navigation = (): React.ReactElement => {
   const dispatch = useAppDispatch();
   const { removeLocalStorageKey } = useLocalStorage();
   const navigate = useNavigate();
+
   const logoutOnClick = () => {
     dispatch(logoutUserActionCreator());
     removeLocalStorageKey("token");
-    navigate("/home");
+    navigate(paths.login, {
+      replace: true,
+    });
   };
 
   return (
