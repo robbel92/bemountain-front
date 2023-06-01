@@ -21,6 +21,10 @@ export const userDataTokenMock: UserTokenStructure = {
   token:
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDZmNmY3YmFmOWExOTg4MjBjYWY5OGEiLCJuYW1lIjoiQWRtaW5pc3RyYWRvciIsImlhdCI6MTY4NTQ0NDI4NCwiZXhwIjoxNjg1NTMwNjg0fQ._UdYOb7yHIkBZg8feLE0VwbZlfxNGTVBx89wcrg5Zzc",
 };
+export const userDataMock: Partial<UserTokenStructure> = {
+  id: "646f6f7baf9a198820caf98a",
+  name: "Administrador",
+};
 
 export const userCredentialsMock = getUserCredentialsMock({
   username: "admin",
