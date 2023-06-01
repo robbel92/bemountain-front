@@ -14,8 +14,8 @@ const Layout = (): React.ReactElement => {
         </>
       ) : (
         <>
-          <Header />
           <ContainerStyled>
+            <Header />
             <Outlet />
           </ContainerStyled>
         </>

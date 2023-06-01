@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const NavigationStyled = styled.nav`
   display: flex;
+  border-radius: 5px;
   justify-content: space-between;
   width: 100%;
   padding: 10px 20px;
