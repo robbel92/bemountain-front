@@ -3,7 +3,7 @@ import useLocalStorage from "../../../hooks/useLocalStorage/useLocalStorage";
 import useToken from "../../../hooks/useToken/useToken";
 import useUser from "../../../hooks/useUser/useUser";
 import { useAppDispatch } from "../../../store";
-import { UserCredentials } from "../../../store/user/types";
+import { UserCredentials, UserTokenStructure } from "../../../store/user/types";
 import { loginUserActionCreator } from "../../../store/user/userSlice";
 import Header from "../../Header/Header";
 import LoginForm from "../../LoginForm/LoginForm";
@@ -21,7 +21,13 @@ const LoginPage = (): React.ReactElement => {
 
     if (token) {
       const userData = await getTokenData(token);
-      dispatch(loginUserActionCreator(userData));
+
+      dispatch(
+        loginUserActionCreator({
+          ...userData,
+          token: token,
+        } as UserTokenStructure)
+      );
       setLocalStorageKey("token", token);
       navigate("/home");
     }

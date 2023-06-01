@@ -5,6 +5,7 @@ import { useAppDispatch } from "../../store";
 import { loginUserActionCreator } from "../../store/user/userSlice";
 import Layout from "../Layout/Layout";
 import { useEffect } from "react";
+import { UserTokenStructure } from "../../store/user/types";
 
 const App = (): React.ReactElement => {
   const { getLocalStorageKey } = useLocalStorage();
@@ -15,7 +16,13 @@ const App = (): React.ReactElement => {
   const token = getLocalStorageKey("token");
   useEffect(() => {
     if (token) {
-      dispatch(loginUserActionCreator(getTokenData(token)));
+      const userData = getTokenData(token);
+      dispatch(
+        loginUserActionCreator({
+          ...userData,
+          token: token,
+        } as UserTokenStructure)
+      );
       navigate("/home");
     }
   }, [dispatch, getTokenData, navigate, token]);

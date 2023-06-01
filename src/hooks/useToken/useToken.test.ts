@@ -1,5 +1,8 @@
 import { renderHook } from "@testing-library/react";
-import { userDataTokenMock } from "../../mocks/userMocks/userMocks";
+import {
+  userDataMock,
+  userDataTokenMock,
+} from "../../mocks/userMocks/userMocks";
 import useToken from "./useToken";
 
 describe("Given a getTokenData function", () => {
@@ -15,7 +18,7 @@ describe("Given a getTokenData function", () => {
 
       const userLoggedData = getTokenData(token);
 
-      expect(userLoggedData).toStrictEqual(userDataTokenMock);
+      expect(userLoggedData).toStrictEqual(userDataMock);
     });
   });
 });
