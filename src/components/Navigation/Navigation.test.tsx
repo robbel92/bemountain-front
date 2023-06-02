@@ -4,7 +4,6 @@ import userEvent from "@testing-library/user-event";
 import Navigation from "./Navigation";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import LoginPage from "../pages/LoginPage/LoginPage";
-import { paths } from "../../routers/paths/paths";
 
 describe("Given a Navigation component", () => {
   describe("When its rendered", () => {
@@ -23,31 +22,32 @@ describe("Given a Navigation component", () => {
 });
 describe("Given a logoutOnClick function", () => {
   describe("When it is called", () => {
-    test("Then it should navigate to path '/home'", async () => {
+    test("Then it should navigate to LoginPage", async () => {
       const routes = [
         {
           path: "/",
           element: <Navigation />,
-          children: [
-            {
-              path: "/login",
-              element: <LoginPage />,
-            },
-          ],
+        },
+        {
+          path: "/login",
+          element: <LoginPage />,
         },
       ];
 
       const navigationRouter = createMemoryRouter(routes);
-      const expectedPathname = paths.login;
-      renderWithProviders(
-        <RouterProvider router={navigationRouter}></RouterProvider>
-      );
+      const expectedHeadingFormText = "Log in to enjoy the mountains";
+
+      renderWithProviders(<RouterProvider router={navigationRouter} />);
 
       const logOutButton = screen.getByLabelText("to logout");
 
       await userEvent.click(logOutButton);
 
-      expect(navigationRouter.state.location.pathname).toBe(expectedPathname);
+      const expectedFormHeading = screen.getByRole("heading", {
+        name: expectedHeadingFormText,
+      });
+
+      expect(expectedFormHeading).toBeInTheDocument();
     });
   });
 });

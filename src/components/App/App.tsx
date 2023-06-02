@@ -14,6 +14,7 @@ const App = (): React.ReactElement => {
   const navigate = useNavigate();
 
   const token = getLocalStorageKey("token");
+
   useEffect(() => {
     if (token) {
       const userData = getTokenData(token);
