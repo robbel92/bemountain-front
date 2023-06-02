@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import { renderWithProviders, wrapWithRouter } from "../../../utils/testUtils";
 import userEvent from "@testing-library/user-event";
 import LoginPage from "./LoginPage";
@@ -8,14 +8,17 @@ import {
   createMemoryRouter,
 } from "react-router-dom";
 import { paths } from "../../../routers/paths/paths";
+import { LazyLoginPage } from "../../../routers/LazyPages";
 
 describe("Given a LoginPage page", () => {
   describe("When it is rendered", () => {
-    test("Then it should show an image with bemount logo", () => {
+    test("Then it should show an image with bemount logo", async () => {
       const altTextLogo = "bemount web logo";
 
-      renderWithProviders(wrapWithRouter(<LoginPage />));
-      const logoExpected = screen.getByAltText(altTextLogo);
+      renderWithProviders(wrapWithRouter(<LazyLoginPage />));
+      const logoExpected = await waitFor(() =>
+        screen.getByAltText(altTextLogo)
+      );
 
       expect(logoExpected).toBeInTheDocument();
     });
