@@ -7,7 +7,7 @@ const routeDataFactory = Factory.define<RouteStructure>(() => ({
   id: faker.database.mongodbObjectId().toString(),
   author: faker.database.mongodbObjectId().toString(),
   description: faker.commerce.productDescription(),
-  difficulty: faker.helpers.arrayElement(["fácil", "moderada", "difícil"]),
+  difficulty: faker.helpers.arrayElement(["Fácil", "Moderada", "Difícil"]),
   distance: faker.number.int({ min: 5, max: 200 }),
   elevationGain: faker.number.int({ min: 5, max: 10000 }),
   name: faker.commerce.product(),

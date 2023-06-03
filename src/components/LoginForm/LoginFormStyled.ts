@@ -10,7 +10,7 @@ const LoginFormStyled = styled.form`
   .form {
     &__title {
       margin-bottom: 20px;
-      font-weight: 800;
+      font-weight: 600;
       font-size: 20px;
       text-align: center;
       color: white;
