@@ -1,4 +1,6 @@
 import { RouteStructure } from "../../store/routes/types";
+import RouteCard from "../RouteCard/RouteCard";
+import RoutesListStyled from "./RoutesListStyled";
 
 interface RoutesListProps {
   routes: RouteStructure[];
@@ -6,16 +8,16 @@ interface RoutesListProps {
 
 const RoutesList = ({ routes }: RoutesListProps): React.ReactElement => {
   return (
-    <div>
+    <RoutesListStyled>
       <h2>Routes</h2>
       <ul className="routes-list">
         {routes.map((route) => (
-          <li className="robotList-card" key={route.id}>
-            <h2>{route.name}</h2>
+          <li className="routeList-card" key={route.id}>
+            <RouteCard route={route}></RouteCard>
           </li>
         ))}
       </ul>
-    </div>
+    </RoutesListStyled>
   );
 };
 

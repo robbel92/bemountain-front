@@ -8,7 +8,8 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
-    font-family: "Montserrat";
+    font-family: ${(props) => props.theme.fonts.primary_title};
+    font-display:swap
     
   }
 
