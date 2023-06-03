@@ -1,19 +1,20 @@
 import { useEffect } from "react";
-import { routesMock } from "../../../mocks/routeMocks/routeMocks";
 import { useAppDispatch, useAppSelector } from "../../../store";
 import { loadRoutesActionCreator } from "../../../store/routes/routesSlice";
 import RoutesPageStyled from "./RoutesPageStyled";
 import RoutesList from "../../RoutesList/RoutesList";
+import useRoutes from "../../../hooks/useRoutes/useRoutes";
 
 const RoutesPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
+  const { getRoutes } = useRoutes();
   const { routes } = useAppSelector((state) => state.routesStore);
 
   useEffect(() => {
     (async () => {
-      dispatch(loadRoutesActionCreator(routesMock));
+      dispatch(loadRoutesActionCreator(await getRoutes()));
     })();
-  }, [dispatch]);
+  }, [dispatch, getRoutes]);
 
   return (
     <RoutesPageStyled>
