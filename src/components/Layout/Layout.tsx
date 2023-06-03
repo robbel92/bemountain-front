@@ -8,7 +8,7 @@ const Layout = (): React.ReactElement => {
 
   return (
     <>
-      {pathname === paths.login ? (
+      {pathname === `/${paths.login}` ? (
         <>
           <Outlet />
         </>

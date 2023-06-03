@@ -1,6 +1,7 @@
 import { pathsStructure } from "./types";
 
 export const paths: pathsStructure = {
-  login: "/login",
-  home: "/home",
+  login: "login",
+  home: "home",
+  user: "user",
 };
