@@ -31,7 +31,7 @@ describe("Given a LoginPage page", () => {
 
       const routes: RouteObject[] = [
         { path: "/", element: <LoginPage /> },
-        { path: paths.home },
+        { path: `/${paths.home}` },
       ];
 
       const routerLogin = createMemoryRouter(routes);
@@ -53,7 +53,7 @@ describe("Given a LoginPage page", () => {
       await userEvent.type(passwordInput, password);
       await userEvent.click(buttonLogIn);
 
-      expect(routerLogin.state.location.pathname).toBe(paths.home);
+      expect(routerLogin.state.location.pathname).toBe(`/${paths.home}`);
     });
   });
 });
