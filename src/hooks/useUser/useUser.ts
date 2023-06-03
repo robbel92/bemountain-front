@@ -1,5 +1,6 @@
 import axios from "axios";
 import { UserCredentials } from "../../store/user/types";
+import { paths } from "../../routers/paths/paths";
 
 export const apiUrl = import.meta.env.VITE_APP_URL;
 
@@ -9,7 +10,7 @@ const useUser = () => {
       const {
         data: { token },
       } = await axios.post<{ token: string }>(
-        `${apiUrl}user/login`,
+        `${apiUrl}${paths.user}${paths.login}`,
         userCredentials
       );
 

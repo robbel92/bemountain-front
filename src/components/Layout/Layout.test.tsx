@@ -37,10 +37,10 @@ describe("Given a Layout component", () => {
           children: [
             {
               index: true,
-              element: <Navigate to={`/${paths.login}`} replace />,
+              element: <Navigate to={paths.login} replace />,
             },
             {
-              path: `/${paths.login}`,
+              path: paths.login,
               element: <LoginPage />,
             },
           ],

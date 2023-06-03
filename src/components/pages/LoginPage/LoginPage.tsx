@@ -8,6 +8,7 @@ import { loginUserActionCreator } from "../../../store/user/userSlice";
 import Header from "../../Header/Header";
 import LoginForm from "../../LoginForm/LoginForm";
 import LoginPageStyled from "./LoginPageStyled";
+import { paths } from "../../../routers/paths/paths";
 
 const LoginPage = (): React.ReactElement => {
   const { getUserToken } = useUser();
@@ -29,7 +30,7 @@ const LoginPage = (): React.ReactElement => {
         } as UserTokenStructure)
       );
       setLocalStorageKey("token", token);
-      navigate("/home");
+      navigate(paths.home);
     }
   };
   return (
