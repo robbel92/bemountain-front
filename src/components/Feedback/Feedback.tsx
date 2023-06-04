@@ -10,8 +10,15 @@ const Feedback = (): React.ReactElement => {
   const handleOnClose = () => {
     dispatch(hideFeedbackActionCreator());
   };
+
   return (
-    <FeedbackStyled className="feedback">
+    <FeedbackStyled
+      className="feedback"
+      onClick={handleOnClose}
+      onKeyPress={handleOnClose}
+      tabIndex={0}
+      role="button"
+    >
       <div
         className={
           isError ? "feedback__message error__message" : "feedback__message"

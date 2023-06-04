@@ -24,6 +24,9 @@ const NavigationStyled = styled.nav`
       display: flex;
       justify-content: center;
       align-items: center;
+      &:disabled {
+        opacity: 0.5;
+      }
     }
   }
 `;

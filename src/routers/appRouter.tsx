@@ -17,7 +17,7 @@ const routes: RouteObject[] = [
         path: paths.login,
         element: (
           <Suspense>
-            <LazyLoginPage />,
+            <LazyLoginPage />
           </Suspense>
         ),
       },
