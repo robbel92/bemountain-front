@@ -8,18 +8,13 @@ const Layout = (): React.ReactElement => {
 
   return (
     <>
-      {pathname === paths.login ? (
-        <>
-          h
-          <Outlet />
-        </>
+      {pathname === paths.login || pathname === "/loader" ? (
+        <Outlet />
       ) : (
-        <>
-          <ContainerStyled>
-            <Header />
-            <Outlet />
-          </ContainerStyled>
-        </>
+        <ContainerStyled>
+          <Header />
+          <Outlet />
+        </ContainerStyled>
       )}
     </>
   );
