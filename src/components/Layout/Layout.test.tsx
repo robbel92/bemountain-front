@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
-import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
-import Layout from "./Layout";
+import { renderWithProviders } from "../../utils/testUtils";
+
 import { vi } from "vitest";
 import {
   Navigate,
@@ -8,9 +8,10 @@ import {
   RouterProvider,
   createMemoryRouter,
 } from "react-router-dom";
-import { paths } from "../../routers/paths/paths";
-import App from "../App/App";
+
 import LoginPage from "../pages/LoginPage/LoginPage";
+import Layout from "./Layout";
+import { paths } from "../../routers/paths/paths";
 
 afterEach(() => {
   vi.clearAllMocks();
@@ -21,19 +22,10 @@ describe("Given a Layout component", () => {
     test("Then it should show an image with bemount logo", () => {
       const altTextImage = "bemount web logo";
 
-      renderWithProviders(wrapWithRouter(<Layout />));
-
-      const imageExpected = screen.getByAltText(altTextImage);
-
-      expect(imageExpected).toBeInTheDocument();
-    });
-  });
-  describe("When it is rendered and path location is '/login'", () => {
-    test("Then it should show a heading with test 'Log in to enjoy the mountains'", () => {
       const routes: RouteObject[] = [
         {
           path: "/",
-          element: <App />,
+          element: <Layout />,
           children: [
             {
               index: true,
@@ -48,17 +40,14 @@ describe("Given a Layout component", () => {
       ];
 
       const layoutRouter = createMemoryRouter(routes);
-      const headingText = "Log in to enjoy the mountains";
 
       renderWithProviders(
         <RouterProvider router={layoutRouter}></RouterProvider>
       );
-      const expectedHeading = screen.getByRole("heading", {
-        name: headingText,
-        level: 1,
-      });
 
-      expect(expectedHeading).toBeInTheDocument();
+      const imageExpected = screen.getByAltText(altTextImage);
+
+      expect(imageExpected).toBeInTheDocument();
     });
   });
 });

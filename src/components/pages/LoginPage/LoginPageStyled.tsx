@@ -7,8 +7,8 @@ const LoginPageStyled = styled.div`
   background-size: cover;
   gap: 120px;
   flex-direction: column;
+  padding: 20px;
   display: flex;
-  align-items: center;
   background-position: center;
 `;
 

@@ -5,7 +5,7 @@ const LoginFormStyled = styled.form`
   max-width: 600px;
   flex-direction: column;
   gap: 30px;
-  padding: 40px 30px;
+  padding: 10px 10px;
 
   .form {
     &__title {
@@ -23,7 +23,6 @@ const LoginFormStyled = styled.form`
       box-shadow: none;
       font-weight: 400;
       letter-spacing: 2px;
-
       border-radius: 5px;
       border: 1px solid white;
       font-size: 20px;

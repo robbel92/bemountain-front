@@ -34,12 +34,10 @@ const LoginPage = (): React.ReactElement => {
     }
   };
   return (
-    <>
-      <LoginPageStyled>
-        <Header />
-        <LoginForm actionOnSubmit={loginOnSubmit} />
-      </LoginPageStyled>
-    </>
+    <LoginPageStyled>
+      <Header />
+      <LoginForm actionOnSubmit={loginOnSubmit} />
+    </LoginPageStyled>
   );
 };
 
