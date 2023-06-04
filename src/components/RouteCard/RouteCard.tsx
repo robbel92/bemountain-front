@@ -19,11 +19,21 @@ const RouteCard = ({ route }: RouteCardProps): React.ReactElement => {
         />
       </div>
       <div className="card-buttons">
-        <button>
-          <img src="/media/icon-edit.svg" alt="" />
+        <button aria-label="create">
+          <img
+            src="/media/icon-edit.svg"
+            alt="icon with pencil edit"
+            width={48}
+            height={48}
+          />
         </button>
-        <button>
-          <img src="/media/icon-delete.svg" alt="" />
+        <button aria-label="delete">
+          <img
+            src="/media/icon-delete.svg"
+            alt="icon with bin"
+            width={48}
+            height={48}
+          />
         </button>
       </div>
       <div className="card-data">

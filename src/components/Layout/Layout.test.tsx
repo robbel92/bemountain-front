@@ -57,7 +57,7 @@ describe("Given a Layout component", () => {
       const message = "Wrong credentials";
 
       renderWithProviders(<Layout />, {
-        uiStore: { message: message, isError: true, isLoading: false },
+        uiStore: { message: message, isError: true, isLoading: true },
       });
 
       const button = screen.getByRole("button", {
