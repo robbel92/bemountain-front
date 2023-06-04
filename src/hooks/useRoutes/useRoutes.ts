@@ -1,11 +1,16 @@
 import axios from "axios";
 import { apiUrl } from "../useUser/useUser";
 import { RouteStructure } from "../../store/routes/types";
-import { useAppSelector } from "../../store";
+import { useAppDispatch, useAppSelector } from "../../store";
 import { paths } from "../../routers/paths/paths";
 import { useCallback, useMemo } from "react";
+import {
+  hideLoadingActionCreator,
+  showLoadingActionCreator,
+} from "../../store/ui/uiSlice";
 
 const useRoutes = () => {
+  const dispatch = useAppDispatch();
   const { token } = useAppSelector((state) => state.userStore);
 
   const requestConfig = useMemo(
@@ -17,14 +22,26 @@ const useRoutes = () => {
     [token]
   );
 
-  const getRoutes = useCallback(async (): Promise<RouteStructure[]> => {
-    const { data: Routes } = await axios.get<RouteStructure[]>(
-      `${apiUrl}${paths.routes}`,
-      requestConfig
-    );
+  const getRoutes = useCallback(async (): Promise<
+    RouteStructure[] | undefined
+  > => {
+    try {
+      dispatch(showLoadingActionCreator());
 
-    return Routes;
-  }, [requestConfig]);
+      const { data: Routes } = await axios.get<RouteStructure[] | undefined>(
+        `${apiUrl}${paths.routes}`,
+        requestConfig
+      );
+
+      dispatch(hideLoadingActionCreator());
+
+      return Routes;
+    } catch (error) {
+      dispatch(hideLoadingActionCreator());
+
+      throw new Error("Sorry, Routes could not be loaded");
+    }
+  }, [dispatch, requestConfig]);
   return { getRoutes };
 };
 
