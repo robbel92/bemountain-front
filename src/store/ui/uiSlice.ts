@@ -1,8 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { UiStateStructure } from "./types";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { FeedbackPayloadStructure, UiStateStructure } from "./types";
 
 const initialUiState: UiStateStructure = {
   isLoading: false,
+  message: "",
+  isError: false,
 };
 
 const uiSlice = createSlice({
@@ -16,6 +18,19 @@ const uiSlice = createSlice({
     hideLoading: (currentUiState: UiStateStructure) => ({
       ...currentUiState,
       isLoading: false,
+    }),
+    showFeedback: (
+      currentUiState: UiStateStructure,
+      action: PayloadAction<FeedbackPayloadStructure>
+    ) => ({
+      ...currentUiState,
+      message: action.payload.message,
+      isError: action.payload.isError,
+    }),
+    hideFeedback: (currentUiState: UiStateStructure) => ({
+      ...currentUiState,
+      message: "",
+      isError: false,
     }),
   },
 });
