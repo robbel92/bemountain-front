@@ -1,17 +1,29 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "../../utils/testUtils";
 import Feedback from "./Feedback";
+import { store } from "../../store";
+import userEvent from "@testing-library/user-event";
 
 describe("Given a Feedback component", () => {
-  describe("When it is rendered and receives a text", () => {
-    test("Then it should show a message with this text", () => {
-      const text = "Wrong credentials";
+  describe("When it is rendered ", () => {
+    test("Then it should show a button with the text 'CLOSE' which when clicked should set the ui store message to empty", async () => {
+      const buttonText = "CLOSE";
 
-      renderWithProviders(<Feedback isError={false} text={text} />);
+      renderWithProviders(<Feedback />, {
+        uiStore: { isError: true, isLoading: false, message: "hola" },
+      });
 
-      const feedbackMessage = screen.getByLabelText("feedback message");
+      const button = screen.getByRole("button", {
+        name: buttonText,
+      });
 
-      expect(feedbackMessage).toHaveTextContent(text);
+      expect(button).toBeInTheDocument();
+
+      await userEvent.click(button);
+
+      const testStore = store.getState();
+
+      expect(testStore.uiStore.message).toBeFalsy();
     });
   });
 });
