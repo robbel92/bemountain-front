@@ -37,4 +37,6 @@ const uiSlice = createSlice({
 
 export const { showLoading: showLoadingActionCreator } = uiSlice.actions;
 export const { hideLoading: hideLoadingActionCreator } = uiSlice.actions;
+export const { showFeedback: showFeedbackActionCreator } = uiSlice.actions;
+
 export const uiReducer = uiSlice.reducer;
