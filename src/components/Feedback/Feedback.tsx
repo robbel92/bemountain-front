@@ -1,11 +1,15 @@
+import { useAppDispatch, useAppSelector } from "../../store";
+import { hideFeedbackActionCreator } from "../../store/ui/uiSlice";
 import Button from "../Button/Button";
 import FeedbackStyled from "./FeedbackStyled";
-interface FeedbackProps {
-  text: string;
-  isError: boolean;
-}
 
-const Feedback = ({ isError, text }: FeedbackProps): React.ReactElement => {
+const Feedback = (): React.ReactElement => {
+  const { message, isError } = useAppSelector((state) => state.uiStore);
+  const dispatch = useAppDispatch();
+
+  const handleOnClose = () => {
+    dispatch(hideFeedbackActionCreator());
+  };
   return (
     <FeedbackStyled className="feedback">
       <div
@@ -13,9 +17,9 @@ const Feedback = ({ isError, text }: FeedbackProps): React.ReactElement => {
           isError ? "feedback__message error__message" : "feedback__message"
         }
       >
-        <span aria-label="feedback message">{text}</span>
+        <span aria-label="feedback message">{message}</span>
         <Button
-          actionOnClick={() => ({})}
+          actionOnClick={handleOnClose}
           className={
             isError ? "feedback__button error__button" : "feedback__button"
           }

@@ -18,7 +18,7 @@ afterEach(() => {
 });
 
 describe("Given a Layout component", () => {
-  describe("When it is rendered and path location is different to '/login'", () => {
+  describe("When it is rendered", () => {
     test("Then it should show an image with bemount logo", () => {
       const altTextImage = "bemount web logo";
 
@@ -42,12 +42,29 @@ describe("Given a Layout component", () => {
       const layoutRouter = createMemoryRouter(routes);
 
       renderWithProviders(
-        <RouterProvider router={layoutRouter}></RouterProvider>
+        <RouterProvider router={layoutRouter}></RouterProvider>,
+        {}
       );
 
       const imageExpected = screen.getByAltText(altTextImage);
 
       expect(imageExpected).toBeInTheDocument();
+    });
+  });
+  describe("When it is rendered and exist a message on uiStore", () => {
+    test("Then it should show a button to close feedback", () => {
+      const textButton = "CLOSE";
+      const message = "Wrong credentials";
+
+      renderWithProviders(<Layout />, {
+        uiStore: { message: message, isError: true, isLoading: false },
+      });
+
+      const button = screen.getByRole("button", {
+        name: textButton,
+      });
+
+      expect(button).toBeInTheDocument();
     });
   });
 });
