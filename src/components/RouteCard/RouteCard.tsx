@@ -16,6 +16,7 @@ const RouteCard = ({ route }: RouteCardProps): React.ReactElement => {
           width="280"
           height="320"
           className="card-container__image"
+          loading="lazy"
         />
       </div>
       <div className="card-buttons">
