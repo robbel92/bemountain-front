@@ -25,7 +25,7 @@ describe("Given a getRoutes function", () => {
     test("Then it should throw a 'Sorry, Routes could not be loaded' error", () => {
       server.resetHandlers(...errorHandlers);
 
-      const expectedError = "Sorry, Routes could not be loaded";
+      const expectedError = new Error("Sorry, Routes could not be loaded");
 
       const {
         result: {
@@ -33,9 +33,9 @@ describe("Given a getRoutes function", () => {
         },
       } = renderHook(() => useRoutes(), { wrapper: wrapWithProviders });
 
-      const getTokenFunction = getRoutes();
+      const routes = getRoutes();
 
-      expect(getTokenFunction).rejects.toThrowError(expectedError);
+      expect(routes).rejects.toThrowError(expectedError);
     });
   });
 });

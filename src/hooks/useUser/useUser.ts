@@ -2,7 +2,10 @@ import axios from "axios";
 import { UserCredentials } from "../../store/user/types";
 import { paths } from "../../routers/paths/paths";
 import { useAppDispatch } from "../../store";
-import { showFeedbackActionCreator } from "../../store/ui/uiSlice";
+import {
+  hideLoadingActionCreator,
+  showFeedbackActionCreator,
+} from "../../store/ui/uiSlice";
 
 export const apiUrl = import.meta.env.VITE_APP_URL;
 
@@ -26,6 +29,7 @@ const useUser = () => {
           isError: true,
         })
       );
+      dispatch(hideLoadingActionCreator());
 
       throw error;
     }

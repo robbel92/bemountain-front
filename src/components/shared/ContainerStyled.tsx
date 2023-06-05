@@ -5,6 +5,7 @@ const ContainerStyled = styled.div`
   background-color: transparent;
   min-height: 100vh;
   flex-direction: column;
+  gap: 20px;
   padding: 0px 20px 20px 20px;
 `;
 

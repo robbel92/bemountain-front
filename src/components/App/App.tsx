@@ -6,6 +6,7 @@ import { loginUserActionCreator } from "../../store/user/userSlice";
 import Layout from "../Layout/Layout";
 import { useEffect } from "react";
 import { UserTokenStructure } from "../../store/user/types";
+import { paths } from "../../routers/paths/paths";
 
 const App = (): React.ReactElement => {
   const { getLocalStorageKey } = useLocalStorage();
@@ -24,7 +25,7 @@ const App = (): React.ReactElement => {
           token: token,
         } as UserTokenStructure)
       );
-      navigate("/home");
+      navigate(paths.home);
     }
   }, [dispatch, getTokenData, navigate, token]);
 
