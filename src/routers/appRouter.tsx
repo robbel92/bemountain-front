@@ -3,11 +3,13 @@ import App from "../components/App/App";
 import { paths } from "./paths/paths";
 import { Suspense } from "react";
 import { LazyLoginPage, LazyRoutesPage } from "./LazyPages";
+import PageNotFound from "../components/pages/PageNotFound/PageNotFound";
 
 const routes: RouteObject[] = [
   {
     path: "/",
     element: <App />,
+    errorElement: <PageNotFound />,
     children: [
       {
         index: true,
