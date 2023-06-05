@@ -9,6 +9,10 @@ import Header from "../../Header/Header";
 import LoginForm from "../../LoginForm/LoginForm";
 import LoginPageStyled from "./LoginPageStyled";
 import { paths } from "../../../routers/paths/paths";
+import {
+  hideLoadingActionCreator,
+  showLoadingActionCreator,
+} from "../../../store/ui/uiSlice";
 
 const LoginPage = (): React.ReactElement => {
   const { getUserToken } = useUser();
@@ -18,6 +22,7 @@ const LoginPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
 
   const loginOnSubmit = async (userCredentials: UserCredentials) => {
+    dispatch(showLoadingActionCreator());
     const token = await getUserToken(userCredentials);
 
     if (token) {
@@ -31,8 +36,10 @@ const LoginPage = (): React.ReactElement => {
       );
       setLocalStorageKey("token", token);
       navigate(paths.home);
+      dispatch(hideLoadingActionCreator());
     }
   };
+
   return (
     <LoginPageStyled>
       <Header />
