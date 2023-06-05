@@ -9,8 +9,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     font-family: ${(props) => props.theme.fonts.primary_title};
-    font-display:swap
-    
   }
 
   h1,
