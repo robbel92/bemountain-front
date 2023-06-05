@@ -20,6 +20,7 @@ const PageNotFound = (): React.ReactElement => {
           actionOnClick={handleOnClick}
           type="button"
           className="back-home"
+          aria-label="back home"
         >
           BACK HOME{" "}
         </Button>
