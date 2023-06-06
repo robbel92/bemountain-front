@@ -3,9 +3,10 @@ import RouteCardStyled from "./RouteCardStyled";
 
 interface RouteCardProps {
   route: RouteStructure;
+  isLazy: "eager" | "lazy";
 }
 
-const RouteCard = ({ route }: RouteCardProps): React.ReactElement => {
+const RouteCard = ({ route, isLazy }: RouteCardProps): React.ReactElement => {
   return (
     <RouteCardStyled>
       <div className="card-container">
@@ -16,7 +17,7 @@ const RouteCard = ({ route }: RouteCardProps): React.ReactElement => {
           width="280"
           height="320"
           className="card-container__image"
-          loading="lazy"
+          loading={isLazy}
         />
       </div>
       <div className="card-buttons">
