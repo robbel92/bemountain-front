@@ -13,3 +13,7 @@ export interface RouteStructure {
 export interface RoutesStateStructure {
   routes: RouteStructure[];
 }
+
+export interface PayloadRemove {
+  routeId: string;
+}

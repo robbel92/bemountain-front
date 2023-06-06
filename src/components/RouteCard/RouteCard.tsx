@@ -1,3 +1,5 @@
+import { useAppDispatch } from "../../store";
+import { removeRouteActionCreator } from "../../store/routes/routesSlice";
 import { RouteStructure } from "../../store/routes/types";
 import RouteCardStyled from "./RouteCardStyled";
 
@@ -7,6 +9,10 @@ interface RouteCardProps {
 }
 
 const RouteCard = ({ route, isLazy }: RouteCardProps): React.ReactElement => {
+  const dispatch = useAppDispatch();
+  const handleOnDelete = () => {
+    dispatch(removeRouteActionCreator({ routeId: route.id }));
+  };
   return (
     <RouteCardStyled>
       <div className="card-container">
@@ -29,7 +35,7 @@ const RouteCard = ({ route, isLazy }: RouteCardProps): React.ReactElement => {
             height={48}
           />
         </button>
-        <button aria-label="delete">
+        <button aria-label="delete" onClick={handleOnDelete}>
           <img
             src="/media/icon-delete.svg"
             alt="icon with bin"
