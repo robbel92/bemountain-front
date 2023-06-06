@@ -1,6 +1,7 @@
 import { useAppDispatch } from "../../store";
 import { removeRouteActionCreator } from "../../store/routes/routesSlice";
 import { RouteStructure } from "../../store/routes/types";
+import Button from "../Button/Button";
 import RouteCardStyled from "./RouteCardStyled";
 
 interface RouteCardProps {
@@ -27,22 +28,26 @@ const RouteCard = ({ route, isLazy }: RouteCardProps): React.ReactElement => {
         />
       </div>
       <div className="card-buttons">
-        <button aria-label="create">
+        <Button aria_label="create" type="button">
           <img
             src="/media/icon-edit.svg"
             alt="icon with pencil edit"
             width={48}
             height={48}
           />
-        </button>
-        <button aria-label="delete" onClick={handleOnDelete}>
+        </Button>
+        <Button
+          aria_label="delete"
+          actionOnClick={handleOnDelete}
+          type="button"
+        >
           <img
             src="/media/icon-delete.svg"
             alt="icon with bin"
             width={48}
             height={48}
           />
-        </button>
+        </Button>
       </div>
       <div className="card-data">
         <h2 className="difficulty">Dificultad</h2>

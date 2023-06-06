@@ -1,9 +1,10 @@
 import { PropsWithChildren } from "react";
 
 interface ButtonProps extends PropsWithChildren {
-  actionOnClick: () => void;
+  actionOnClick?: () => void;
   type: "button" | "reset" | "submit";
-  className: string;
+  className?: string;
+  aria_label?: string;
 }
 
 const Button = ({
@@ -11,9 +12,15 @@ const Button = ({
   className,
   type,
   children,
+  aria_label,
 }: ButtonProps): JSX.Element => {
   return (
-    <button onClick={actionOnClick} type={type} className={className}>
+    <button
+      onClick={actionOnClick}
+      type={type}
+      className={className}
+      aria-label={aria_label}
+    >
       {children}
     </button>
   );
