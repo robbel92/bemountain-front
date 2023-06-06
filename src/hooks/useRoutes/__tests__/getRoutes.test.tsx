@@ -1,9 +1,9 @@
 import { renderHook } from "@testing-library/react";
-import useRoutes from "./useRoutes";
-import { wrapWithProviders } from "../../utils/testUtils";
-import { routesMock } from "../../mocks/routeMocks/routeMocks";
-import { errorHandlers } from "../../mocks/handlers";
-import { server } from "../../mocks/server";
+import useRoutes from "../useRoutes";
+import { wrapWithProviders } from "../../../utils/testUtils";
+import { routesMock } from "../../../mocks/routeMocks/routeMocks";
+import { errorHandlers } from "../../../mocks/handlers";
+import { server } from "../../../mocks/server";
 
 describe("Given a getRoutes function", () => {
   describe("When it is called", () => {

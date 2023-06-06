@@ -17,19 +17,12 @@ const Feedback = (): React.ReactElement => {
       onClick={handleOnClose}
       onKeyPress={handleOnClose}
       tabIndex={0}
-      role="button"
     >
-      <div
-        className={
-          isError ? "feedback__message error__message" : "feedback__message"
-        }
-      >
+      <div className={`feedback__message ${isError ? "error__message" : ""}`}>
         <span aria-label="feedback message">{message}</span>
         <Button
           actionOnClick={handleOnClose}
-          className={
-            isError ? "feedback__button error__button" : "feedback__button"
-          }
+          className={`feedback__button ${isError ? "error__button" : ""}`}
           type="button"
         >
           CLOSE

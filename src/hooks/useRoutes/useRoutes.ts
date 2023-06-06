@@ -45,7 +45,6 @@ const useRoutes = () => {
           isError: true,
         })
       );
-
       throw new Error("Sorry, Routes could not be loaded");
     }
   }, [dispatch, requestConfig]);
@@ -54,6 +53,7 @@ const useRoutes = () => {
     try {
       dispatch(showLoadingActionCreator());
       await axios.delete(`${apiUrl}${paths.routes}/${routeId}`, requestConfig);
+
       dispatch(hideLoadingActionCreator());
       dispatch(
         showFeedbackActionCreator({
@@ -61,7 +61,6 @@ const useRoutes = () => {
           isError: false,
         })
       );
-      return 200;
     } catch (error) {
       dispatch(
         showFeedbackActionCreator({
@@ -70,7 +69,6 @@ const useRoutes = () => {
         })
       );
       dispatch(hideLoadingActionCreator());
-      return 404;
     }
   };
   return { getRoutes, removeRoute };
