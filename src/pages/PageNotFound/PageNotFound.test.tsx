@@ -1,13 +1,13 @@
 import { screen } from "@testing-library/react";
-import { renderWithProviders, wrapWithRouter } from "../../../utils/testUtils";
 import PageNotFound from "./PageNotFound";
 import {
   RouteObject,
   RouterProvider,
   createMemoryRouter,
 } from "react-router-dom";
-import { paths } from "../../../routers/paths/paths";
 import userEvent from "@testing-library/user-event";
+import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
+import { paths } from "../../routers/paths/paths";
 
 describe("Given a PageNotFound page ", () => {
   describe("When it is rendered", () => {

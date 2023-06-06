@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../../store";
-import { loadRoutesActionCreator } from "../../../store/routes/routesSlice";
+import Header from "../../components/Header/Header";
+import RoutesList from "../../components/RoutesList/RoutesList";
+import ContainerStyled from "../../components/shared/ContainerStyled";
+import { useAppDispatch, useAppSelector } from "../../store";
+import { loadRoutesActionCreator } from "../../store/routes/routesSlice";
 import RoutesPageStyled from "./RoutesPageStyled";
-import RoutesList from "../../RoutesList/RoutesList";
-import useRoutes from "../../../hooks/useRoutes/useRoutes";
-import Header from "../../Header/Header";
-import ContainerStyled from "../../shared/ContainerStyled";
+import useRoutes from "../../hooks/useRoutes/useRoutes";
 
 const RoutesPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();

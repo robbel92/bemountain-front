@@ -1,9 +1,9 @@
 import { lazy } from "react";
 
 export const LazyLoginPage = lazy(
-  () => import("../components/pages/LoginPage/LoginPage.js")
+  () => import("../pages/LoginPage/LoginPage.js")
 );
 
 export const LazyRoutesPage = lazy(
-  () => import("../components/pages/RoutesPage/RoutesPage.js")
+  () => import("../pages/RoutesPage/RoutesPage.js")
 );
