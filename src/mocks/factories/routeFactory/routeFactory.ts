@@ -15,7 +15,7 @@ const routeDataFactory = Factory.define<RouteStructure>(() => ({
   ubication: faker.location.city(),
 }));
 
-export const getRouteDataMock = (data?: RouteStructure) =>
+export const getRouteDataMock = (data?: Partial<RouteStructure>) =>
   routeDataFactory.build(data);
 
 export const getRoutesDataMock = (howMany: number, data?: RouteStructure) =>
