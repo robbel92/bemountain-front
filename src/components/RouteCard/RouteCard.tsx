@@ -1,3 +1,4 @@
+import useRoutes from "../../hooks/useRoutes/useRoutes";
 import { useAppDispatch } from "../../store";
 import { removeRouteActionCreator } from "../../store/routes/routesSlice";
 import { RouteStructure } from "../../store/routes/types";
@@ -10,9 +11,11 @@ interface RouteCardProps {
 }
 
 const RouteCard = ({ route, isLazy }: RouteCardProps): React.ReactElement => {
+  const { removeRoute } = useRoutes();
   const dispatch = useAppDispatch();
   const handleOnDelete = () => {
     dispatch(removeRouteActionCreator({ routeId: route.id }));
+    removeRoute(route.id);
   };
   return (
     <RouteCardStyled>
