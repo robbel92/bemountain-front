@@ -45,11 +45,33 @@ const useRoutes = () => {
           isError: true,
         })
       );
-
       throw new Error("Sorry, Routes could not be loaded");
     }
   }, [dispatch, requestConfig]);
-  return { getRoutes };
+
+  const removeRoute = async (routeId: string) => {
+    try {
+      dispatch(showLoadingActionCreator());
+      await axios.delete(`${apiUrl}${paths.routes}/${routeId}`, requestConfig);
+
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        showFeedbackActionCreator({
+          message: "The selected route has been deleted succesfully",
+          isError: false,
+        })
+      );
+    } catch (error) {
+      dispatch(
+        showFeedbackActionCreator({
+          message: "Sorry, the selected route could not be deleted",
+          isError: true,
+        })
+      );
+      dispatch(hideLoadingActionCreator());
+    }
+  };
+  return { getRoutes, removeRoute };
 };
 
 export default useRoutes;

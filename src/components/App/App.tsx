@@ -26,6 +26,8 @@ const App = (): React.ReactElement => {
         } as UserTokenStructure)
       );
       navigate(paths.home);
+    } else {
+      navigate(paths.login);
     }
   }, [dispatch, getTokenData, navigate, token]);
 

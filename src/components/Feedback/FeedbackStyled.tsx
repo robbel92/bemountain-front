@@ -4,10 +4,12 @@ const FeedbackStyled = styled.div`
   background-color: #000000be;
   height: 100vh;
   width: 100vw;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
+  z-index: 10;
 
   .feedback {
     &__message {
