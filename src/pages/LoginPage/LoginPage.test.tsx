@@ -1,5 +1,4 @@
 import { screen, waitFor } from "@testing-library/react";
-import { renderWithProviders, wrapWithRouter } from "../../../utils/testUtils";
 import userEvent from "@testing-library/user-event";
 import LoginPage from "./LoginPage";
 import {
@@ -7,8 +6,9 @@ import {
   RouterProvider,
   createMemoryRouter,
 } from "react-router-dom";
-import { paths } from "../../../routers/paths/paths";
-import { LazyLoginPage } from "../../../routers/LazyPages";
+import { LazyLoginPage } from "../../routers/LazyPages";
+import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
+import { paths } from "../../routers/paths/paths";
 
 describe("Given a LoginPage page", () => {
   describe("When it is rendered", () => {

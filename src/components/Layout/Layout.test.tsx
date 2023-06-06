@@ -8,10 +8,9 @@ import {
   RouterProvider,
   createMemoryRouter,
 } from "react-router-dom";
-
-import LoginPage from "../pages/LoginPage/LoginPage";
 import Layout from "./Layout";
 import { paths } from "../../routers/paths/paths";
+import LoginPage from "../../pages/LoginPage/LoginPage";
 
 afterEach(() => {
   vi.clearAllMocks();

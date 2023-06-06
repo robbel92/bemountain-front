@@ -3,7 +3,7 @@ import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 import userEvent from "@testing-library/user-event";
 import Navigation from "./Navigation";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
-import LoginPage from "../pages/LoginPage/LoginPage";
+import LoginPage from "../../pages/LoginPage/LoginPage";
 
 describe("Given a Navigation component", () => {
   describe("When its rendered", () => {

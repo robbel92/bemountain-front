@@ -1,9 +1,9 @@
 import { screen, waitFor } from "@testing-library/react";
-import { renderWithProviders, wrapWithRouter } from "../../../utils/testUtils";
-import { LazyRoutesPage } from "../../../routers/LazyPages";
-import { routesNamesMock } from "../../../mocks/routeMocks/routeMocks";
 import RoutesPage from "./RoutesPage";
 import userEvent from "@testing-library/user-event";
+import { LazyRoutesPage } from "../../routers/LazyPages";
+import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
+import { routesNamesMock } from "../../mocks/routeMocks/routeMocks";
 
 describe("Given a RoutesPage page", () => {
   describe("When it is rendered", () => {

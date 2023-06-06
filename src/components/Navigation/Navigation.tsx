@@ -30,7 +30,7 @@ const Navigation = (): React.ReactElement => {
           height={48}
         />
       </NavLink>
-      <NavLink to="/" aria-label="to home page" className="logo__home">
+      <NavLink to="/home" aria-label="to home page" className="logo__home">
         <img
           src="/media/logo-home.svg"
           alt="a logo with the text home"
