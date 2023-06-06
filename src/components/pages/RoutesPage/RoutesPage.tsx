@@ -11,13 +11,25 @@ const RoutesPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
   const { getRoutes } = useRoutes();
   const { routes } = useAppSelector((state) => state.routesStore);
+  const { isLogged } = useAppSelector((state) => state.userStore);
 
   useEffect(() => {
     (async () => {
       const routes = await getRoutes();
-      if (routes) dispatch(loadRoutesActionCreator(routes));
+      if (routes) {
+        dispatch(loadRoutesActionCreator(routes));
+
+        const preconnectElement = await document.createElement("link");
+        preconnectElement.rel = "preload";
+        preconnectElement.as = "image";
+        preconnectElement.href = routes[0].photo;
+
+        const parent = document.head;
+        const firstChild = document.head.firstChild;
+        parent.insertBefore(preconnectElement, firstChild);
+      }
     })();
-  }, [dispatch, getRoutes]);
+  }, [dispatch, getRoutes, isLogged]);
 
   return (
     <RoutesPageStyled>
