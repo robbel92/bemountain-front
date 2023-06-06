@@ -1,18 +1,18 @@
 import { useNavigate } from "react-router-dom";
-import useLocalStorage from "../../../hooks/useLocalStorage/useLocalStorage";
-import useToken from "../../../hooks/useToken/useToken";
-import useUser from "../../../hooks/useUser/useUser";
-import { useAppDispatch } from "../../../store";
-import { UserCredentials, UserTokenStructure } from "../../../store/user/types";
-import { loginUserActionCreator } from "../../../store/user/userSlice";
-import Header from "../../Header/Header";
-import LoginForm from "../../LoginForm/LoginForm";
-import LoginPageStyled from "./LoginPageStyled";
-import { paths } from "../../../routers/paths/paths";
+import Header from "../../components/Header/Header";
+import LoginForm from "../../components/LoginForm/LoginForm";
+import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
+import useToken from "../../hooks/useToken/useToken";
+import useUser from "../../hooks/useUser/useUser";
+import { paths } from "../../routers/paths/paths";
+import { useAppDispatch } from "../../store";
 import {
-  hideLoadingActionCreator,
   showLoadingActionCreator,
-} from "../../../store/ui/uiSlice";
+  hideLoadingActionCreator,
+} from "../../store/ui/uiSlice";
+import { UserCredentials, UserTokenStructure } from "../../store/user/types";
+import { loginUserActionCreator } from "../../store/user/userSlice";
+import LoginPageStyled from "./LoginPageStyled";
 
 const LoginPage = (): React.ReactElement => {
   const { getUserToken } = useUser();

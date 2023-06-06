@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../../Button/Button";
-import Header from "../../Header/Header";
-import ContainerStyled from "../../shared/ContainerStyled";
 import PageNotFoundStyled from "./PageNotFoundStyled";
+import Header from "../../components/Header/Header";
+import ContainerStyled from "../../components/shared/ContainerStyled";
+import Button from "../../components/Button/Button";
 
 const PageNotFound = (): React.ReactElement => {
   const navigate = useNavigate();

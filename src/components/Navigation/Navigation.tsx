@@ -18,7 +18,11 @@ const Navigation = (): React.ReactElement => {
 
   return (
     <NavigationStyled>
-      <NavLink to={"/"} aria-label="to create page" className="logo__create">
+      <NavLink
+        to="/create"
+        aria-label="to create page"
+        className="logo__create"
+      >
         <img
           src="/media/crear.svg"
           alt="icon of a plus sign indicating create or add"
