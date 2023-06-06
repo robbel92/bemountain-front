@@ -11,9 +11,12 @@ const RoutesList = ({ routes }: RoutesListProps): React.ReactElement => {
     <RoutesListStyled>
       <h2>Routes</h2>
       <ul className="routes-list">
-        {routes.map((route) => (
+        {routes.map((route, index) => (
           <li className="routeList-card" key={route.id}>
-            <RouteCard route={route}></RouteCard>
+            <RouteCard
+              route={route}
+              isLazy={index === 0 ? "eager" : "lazy"}
+            ></RouteCard>
           </li>
         ))}
       </ul>
