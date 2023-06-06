@@ -6,6 +6,7 @@ import { paths } from "../../routers/paths/paths";
 import { useCallback, useMemo } from "react";
 import {
   hideLoadingActionCreator,
+  showFeedbackActionCreator,
   showLoadingActionCreator,
 } from "../../store/ui/uiSlice";
 
@@ -38,6 +39,12 @@ const useRoutes = () => {
       return Routes;
     } catch (error) {
       dispatch(hideLoadingActionCreator());
+      dispatch(
+        showFeedbackActionCreator({
+          message: "Sorry, Routes could not be loaded",
+          isError: true,
+        })
+      );
 
       throw new Error("Sorry, Routes could not be loaded");
     }
