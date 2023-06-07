@@ -21,9 +21,7 @@ const Form = (): React.ReactElement => {
       <input type="url" id="photo" autoComplete="off" />
       <label htmlFor="Description">Description</label>
       <textarea name="Description" id="Description" autoComplete="off" />
-      <Button type="submit" className="form-button">
-        ADD ROUTE
-      </Button>
+      <Button className="form-button">ADD ROUTE</Button>
     </FormStyled>
   );
 };
