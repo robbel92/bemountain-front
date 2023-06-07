@@ -3,9 +3,8 @@ import App from "../components/App/App";
 import { paths } from "./paths/paths";
 import { Suspense } from "react";
 import { LazyLoginPage, LazyRoutesPage } from "./LazyPages";
-
-import CreateRoutePage from "../pages/CreateRoutePage/CreateRoutePage";
 import PageNotFound from "../pages/PageNotFound/PageNotFound";
+import CreateRoutePage from "../pages/CreateRoutePage/CreateRoutePage";
 
 const routes: RouteObject[] = [
   {
@@ -35,7 +34,7 @@ const routes: RouteObject[] = [
         ),
       },
       {
-        path: "/create",
+        path: "/form",
         element: <CreateRoutePage />,
       },
     ],
