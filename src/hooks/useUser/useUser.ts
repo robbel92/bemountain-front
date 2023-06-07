@@ -5,13 +5,16 @@ import { useAppDispatch } from "../../store";
 import {
   hideLoadingActionCreator,
   showFeedbackActionCreator,
+  showLoadingActionCreator,
 } from "../../store/ui/uiSlice";
 
 export const apiUrl = import.meta.env.VITE_APP_URL;
 
 const useUser = () => {
   const dispatch = useAppDispatch();
+
   const getUserToken = async (userCredentials: UserCredentials) => {
+    dispatch(showLoadingActionCreator());
     try {
       const {
         data: { token },

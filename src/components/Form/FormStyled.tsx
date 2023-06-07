@@ -26,21 +26,26 @@ const FormStyled = styled.form`
 
   select {
     padding: 15px 30px;
-    backdrop-filter: blur(1px);
-    background: white;
-    color: black;
+    backdrop-filter: blur(50px);
+    background: transparent;
+    color: white;
     box-shadow: none;
     font-weight: 400;
     letter-spacing: 2px;
     border-radius: 5px;
     border: 1px solid white;
     font-size: 20px;
+
     ::placeholder {
       font-style: light;
       font-weight: 100;
       font-size: 14px;
       color: #ffffff;
     }
+  }
+
+  select option {
+    background-color: black;
   }
 
   .form-button {
