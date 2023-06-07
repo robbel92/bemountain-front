@@ -12,7 +12,7 @@ const RouteCardStyled = styled.article`
       position: absolute;
       text-transform: uppercase;
       color: white;
-      width: 280px;
+      width: 300px;
       padding: 20px;
       background-image: linear-gradient(
         rgba(0, 0, 0, 0.834),
@@ -32,7 +32,7 @@ const RouteCardStyled = styled.article`
   .card-buttons {
     display: flex;
     padding: 10px 30px;
-    width: 280px;
+    width: 300px;
     background-image: linear-gradient(
       rgba(0, 0, 0, 0.834),
       rgba(0, 0, 0, 0.81)
@@ -44,7 +44,7 @@ const RouteCardStyled = styled.article`
     display: grid;
     color: white;
     padding: 10px;
-    width: 280px;
+    width: 300px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     align-items: center;

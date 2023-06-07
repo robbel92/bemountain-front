@@ -1,6 +1,5 @@
 # Bemount
 
-![Descripción de la imagen](public\media\bemount-logo.svg)
 Bemount is a web application that allows you to discover and manage mountain routes. You can explore existing routes as well as modify and delete routes that belong to your user.
 
 ## Installation

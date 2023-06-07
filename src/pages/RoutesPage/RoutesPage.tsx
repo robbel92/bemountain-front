@@ -35,7 +35,7 @@ const RoutesPage = (): React.ReactElement => {
     <RoutesPageStyled>
       <Header />
       <ContainerStyled>
-        <h2>World Routes</h2>
+        <h2 className="title-page">World Routes</h2>
         <RoutesList routes={routes} />
       </ContainerStyled>
     </RoutesPageStyled>

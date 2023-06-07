@@ -6,10 +6,6 @@ import useToken from "../../hooks/useToken/useToken";
 import useUser from "../../hooks/useUser/useUser";
 import { paths } from "../../routers/paths/paths";
 import { useAppDispatch } from "../../store";
-import {
-  showLoadingActionCreator,
-  hideLoadingActionCreator,
-} from "../../store/ui/uiSlice";
 import { UserCredentials, UserTokenStructure } from "../../store/user/types";
 import { loginUserActionCreator } from "../../store/user/userSlice";
 import LoginPageStyled from "./LoginPageStyled";
@@ -22,7 +18,6 @@ const LoginPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
 
   const loginOnSubmit = async (userCredentials: UserCredentials) => {
-    dispatch(showLoadingActionCreator());
     const token = await getUserToken(userCredentials);
 
     if (token) {
@@ -36,7 +31,6 @@ const LoginPage = (): React.ReactElement => {
       );
       setLocalStorageKey("token", token);
       navigate(paths.home);
-      dispatch(hideLoadingActionCreator());
     }
   };
 

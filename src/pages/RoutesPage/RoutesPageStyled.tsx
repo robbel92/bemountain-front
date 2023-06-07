@@ -7,5 +7,10 @@ const RoutesPageStyled = styled.main`
     url("/media/background-login-page.webp");
   background-size: cover;
   justify-content: center;
+
+  .title-page {
+    color: white;
+    font-size: 24px;
+  }
 `;
 export default RoutesPageStyled;
