@@ -9,7 +9,7 @@ const CreateRoutePage = (): React.ReactElement => {
       <Header />
       <ContainerStyled>
         <h1 className="create__title">Create your route</h1>;
-        <Form />
+        <Form actionOnSubmit={() => ({})} />
       </ContainerStyled>
     </CreateRoutePageStyled>
   );
