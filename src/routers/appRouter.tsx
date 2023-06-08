@@ -2,15 +2,18 @@ import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
 import App from "../components/App/App";
 import { paths } from "./paths/paths";
 import { Suspense } from "react";
-import { LazyLoginPage, LazyRoutesPage } from "./LazyPages";
-import PageNotFound from "../pages/PageNotFound/PageNotFound";
+import {
+  LazyLoginPage,
+  LazyPageNotFoundPage,
+  LazyRoutesPage,
+} from "./LazyPages";
 import CreateRoutePage from "../pages/CreateRoutePage/CreateRoutePage";
 
 const routes: RouteObject[] = [
   {
     path: "/",
     element: <App />,
-    errorElement: <PageNotFound />,
+
     children: [
       {
         index: true,
@@ -36,6 +39,14 @@ const routes: RouteObject[] = [
       {
         path: "/form",
         element: <CreateRoutePage />,
+      },
+      {
+        path: "/*",
+        element: (
+          <Suspense>
+            <LazyPageNotFoundPage />
+          </Suspense>
+        ),
       },
     ],
   },
