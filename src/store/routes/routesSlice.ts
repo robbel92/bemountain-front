@@ -25,9 +25,17 @@ export const RoutesSlice = createSlice({
         (route) => route.id !== action.payload.routeId
       ),
     }),
+    addRoute: (
+      currentState: RoutesStateStructure,
+      action: PayloadAction<RouteStructure>
+    ): RoutesStateStructure => ({
+      ...currentState,
+      routes: [...currentState.routes, action.payload],
+    }),
   },
 });
 
 export const { loadRoutes: loadRoutesActionCreator } = RoutesSlice.actions;
 export const { removeRoute: removeRouteActionCreator } = RoutesSlice.actions;
+export const { addRoute: addRouteActionCreator } = RoutesSlice.actions;
 export const routesReducer = RoutesSlice.reducer;
