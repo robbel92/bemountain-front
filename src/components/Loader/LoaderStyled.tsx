@@ -8,6 +8,7 @@ const LoaderStyled = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
+  z-index: 10;
   .loader {
     width: 58px;
     height: 58px;
