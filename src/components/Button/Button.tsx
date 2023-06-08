@@ -5,6 +5,7 @@ interface ButtonProps extends PropsWithChildren {
   type?: "button" | "reset" | "submit";
   className?: string;
   aria_label?: string;
+  disabled?: boolean;
 }
 
 const Button = ({
@@ -13,6 +14,7 @@ const Button = ({
   type,
   children,
   aria_label,
+  disabled,
 }: ButtonProps): JSX.Element => {
   return (
     <button
@@ -20,6 +22,7 @@ const Button = ({
       type={type}
       className={className}
       aria-label={aria_label}
+      disabled={disabled}
     >
       {children}
     </button>

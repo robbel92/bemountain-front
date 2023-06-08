@@ -9,7 +9,7 @@ describe("Given a Form component", () => {
       const labelName = "Name";
       const name = "Admin";
 
-      renderWithProviders(wrapWithRouter(<Form />));
+      renderWithProviders(wrapWithRouter(<Form actionOnSubmit={() => ({})} />));
 
       screen.debug();
       const nameTextField = screen.getByLabelText(labelName);
