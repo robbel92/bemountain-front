@@ -7,3 +7,7 @@ export const LazyLoginPage = lazy(
 export const LazyRoutesPage = lazy(
   () => import("../pages/RoutesPage/RoutesPage.js")
 );
+
+export const LazyPageNotFoundPage = lazy(
+  () => import("../pages/PageNotFound/PageNotFound.js")
+);
