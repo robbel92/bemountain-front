@@ -8,22 +8,26 @@ const RouteCardStyled = styled.article`
   .card-container {
     display: flex;
     justify-content: center;
+    border: solid 3px #efefef1c;
+    border-radius: 8px;
+
     &__title {
       position: absolute;
+
+      border-radius: 3px;
       text-transform: uppercase;
-      word-break: break-all;
+      white-space: pre-line;
       color: white;
-      width: 300px;
+      width: 340px;
       padding: 20px;
-      background-image: linear-gradient(
-        rgba(0, 0, 0, 0.834),
-        rgba(0, 0, 0, 0.81)
-      );
+      background-image: linear-gradient(rgb(0, 0, 9), rgb(0 0 0 / 62%));
+      border-bottom: solid 1px #ffffff78;
       font-size: 18px;
       letter-spacing: 0.15px;
       font-weight: 800;
       line-height: 24px;
       text-align: center;
+      backdrop-filter: blur(2px);
     }
     &__image {
       border-radius: 5px;
@@ -33,24 +37,29 @@ const RouteCardStyled = styled.article`
   .card-buttons {
     display: flex;
     padding: 10px 30px;
-    width: 300px;
-    background-image: linear-gradient(
-      rgba(0, 0, 0, 0.834),
-      rgba(0, 0, 0, 0.81)
-    );
+    width: 100%;
     justify-content: center;
     justify-content: space-evenly;
   }
   .card-data {
     display: grid;
     color: white;
-    padding: 10px;
-    width: 300px;
+    padding: 15px;
+    width: 100%;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     align-items: center;
-    row-gap: 10px;
-    column-gap: 15px;
+    gap: 15px 15px;
+    border-radius: 0 0 6px 6px;
+    width: 100%;
+  }
+  .photo {
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+
+    border-radius: 60px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 1);
   }
 
   .difficulty {
@@ -77,8 +86,13 @@ const RouteCardStyled = styled.article`
     font-size: 16px;
     grid-area: 3 / 2 / 4 / 3;
   }
-  .avatar {
+  .photo {
     grid-area: 1 / 3 / 4 / 4;
+    justify-self: center;
+    margin-top: 30px;
+  }
+  .photo-data {
+    grid-area: 1 / 3 / 1 / 4;
   }
 `;
 export default RouteCardStyled;

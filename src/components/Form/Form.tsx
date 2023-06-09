@@ -2,12 +2,14 @@ import { useState } from "react";
 import Button from "../Button/Button";
 import FormStyled from "./FormStyled";
 import { RouteStructure } from "../../store/routes/types";
+import { useAppSelector } from "../../store";
 
 interface FormProps {
   actionOnSubmit: (newRoute: Partial<RouteStructure>) => void;
 }
 
 const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
+  const { image, name } = useAppSelector((state) => state.userStore);
   const initialRouteData = {
     name: "",
     difficulty: "",
@@ -26,7 +28,7 @@ const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
 
   const handleOnSubmit = () => {
     event?.preventDefault();
-    actionOnSubmit(routeData);
+    actionOnSubmit({ ...routeData, authorImage: image, authorName: name });
     setRouteData(initialRouteData);
   };
 

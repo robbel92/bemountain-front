@@ -7,7 +7,7 @@ const NavigationStyled = styled.nav`
   width: 100%;
   padding: 10px 20px;
   align-items: center;
-  box-shadow: 0px 0px 24px 0px #00000047;
+  background-color: #0000008f;
 
   .logo {
     &__create,

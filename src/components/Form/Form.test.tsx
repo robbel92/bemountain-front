@@ -11,6 +11,8 @@ import {
   RouterProvider,
   createMemoryRouter,
 } from "react-router-dom";
+import { paths } from "../../routers/paths/paths";
+import RoutesPage from "../../pages/RoutesPage/RoutesPage";
 
 const spyDispatch = vi.spyOn(store, "dispatch");
 
@@ -22,12 +24,10 @@ describe("Given a Form component", () => {
 
       renderWithProviders(wrapWithRouter(<Form actionOnSubmit={() => ({})} />));
 
-      screen.debug();
       const nameTextField = screen.getByLabelText(labelName);
 
       await userEvent.type(nameTextField, name);
 
-      screen.debug(nameTextField);
       expect(nameTextField).toBeInTheDocument();
       expect(nameTextField).toHaveValue(name);
     });
@@ -45,6 +45,7 @@ describe("Given a Form component", () => {
 
       const routes: RouteObject[] = [
         { path: "/", element: <CreateRoutePage /> },
+        { path: paths.routes, element: <RoutesPage /> },
       ];
 
       const router = createMemoryRouter(routes);

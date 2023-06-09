@@ -6,6 +6,8 @@ import { faker } from "@faker-js/faker";
 const routeDataFactory = Factory.define<RouteStructure>(() => ({
   id: faker.database.mongodbObjectId().toString(),
   author: faker.database.mongodbObjectId().toString(),
+  authorImage: faker.image.avatar(),
+  authorName: faker.person.fullName(),
   description: faker.commerce.productDescription(),
   difficulty: faker.helpers.arrayElement(["Fácil", "Moderada", "Difícil"]),
   distance: faker.number.int({ min: 5, max: 200 }),

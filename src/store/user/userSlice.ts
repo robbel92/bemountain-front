@@ -5,6 +5,7 @@ const initialUserState: UserStateStructure = {
   name: "",
   id: "",
   token: "",
+  image: "",
   isLogged: false,
 };
 

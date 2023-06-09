@@ -2,6 +2,8 @@ export interface RouteStructure {
   id: string;
   name: string;
   author: string;
+  authorImage: string;
+  authorName: string;
   description: string;
   difficulty: string;
   distance: number;

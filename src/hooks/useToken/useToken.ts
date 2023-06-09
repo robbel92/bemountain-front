@@ -5,10 +5,12 @@ import { UserTokenStructure } from "../../store/user/types";
 const useToken = () => {
   const getTokenData = useCallback(
     (token: string): Partial<UserTokenStructure> => {
-      const decodedToken: { sub: string; name: string } = jwt_decode(token);
+      const decodedToken: { sub: string; name: string; image: string } =
+        jwt_decode(token);
       const userLoggedData: Partial<UserTokenStructure> = {
         id: decodedToken.sub,
         name: decodedToken.name,
+        image: decodedToken.image,
       };
       return userLoggedData;
     },
