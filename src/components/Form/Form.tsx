@@ -56,7 +56,7 @@ const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
         id="distance"
         autoComplete="off"
         onChange={onChangeInputs}
-        value={routeData.distance}
+        value={Number(routeData.distance)}
       />
       <label htmlFor="difficulty">Difficulty</label>
       <select
@@ -76,7 +76,7 @@ const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
         id="elevationGain"
         autoComplete="off"
         onChange={onChangeInputs}
-        value={routeData.elevationGain}
+        value={Number(routeData.elevationGain)}
       />
       <label htmlFor="photo">Photo</label>
       <input
