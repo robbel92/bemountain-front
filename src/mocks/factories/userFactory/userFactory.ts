@@ -6,6 +6,7 @@ const userDataFactory = Factory.define<UserStateStructure>(() => ({
   name: faker.person.fullName(),
   id: faker.database.mongodbObjectId().toString(),
   token: faker.string.alphanumeric(25),
+  image: faker.image.avatar(),
   isLogged: false,
 }));
 

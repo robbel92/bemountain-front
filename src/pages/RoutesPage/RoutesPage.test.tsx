@@ -4,6 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { LazyRoutesPage } from "../../routers/LazyPages";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 import { routesNamesMock } from "../../mocks/routeMocks/routeMocks";
+import { tokenMock } from "../../mocks/userMocks/userMocks";
 
 describe("Given a RoutesPage page", () => {
   describe("When it is rendered", () => {
@@ -26,6 +27,13 @@ describe("Given a RoutesPage page", () => {
 
       renderWithProviders(wrapWithRouter(<RoutesPage />), {
         routesStore: { routes: routesNamesMock },
+        userStore: {
+          id: routesNamesMock[0].author.toString(),
+          image: "",
+          name: "",
+          token: tokenMock,
+          isLogged: true,
+        },
       });
 
       const deleteButton = screen.getAllByLabelText(ariaLabelDeleteButton);

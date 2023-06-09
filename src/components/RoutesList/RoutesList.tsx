@@ -6,10 +6,10 @@ const RoutesList = (): React.ReactElement => {
   const { routes } = useAppSelector((state) => state.routesStore);
   return (
     <RoutesListStyled>
-      <h2>Routes</h2>
-      <ul className="routes-list">
+      <h2 className="routes__title">Routes</h2>
+      <ul className="routes__list">
         {routes.map((route, index) => (
-          <li className="routeList-card" key={route.id}>
+          <li className="routes__card" key={route.id}>
             <RouteCard
               route={route}
               isLazy={index === 0 ? "eager" : "lazy"}

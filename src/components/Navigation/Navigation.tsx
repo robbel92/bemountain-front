@@ -30,7 +30,7 @@ const Navigation = (): React.ReactElement => {
         <img
           src="/media/logo-home.svg"
           alt="a logo with the text home"
-          width={100}
+          width={80}
           height={40}
         />
       </NavLink>

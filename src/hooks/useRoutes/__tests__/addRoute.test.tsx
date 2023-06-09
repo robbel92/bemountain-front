@@ -38,7 +38,7 @@ describe("Given a addRoutes fucntion", () => {
     });
   });
   describe("When it is called with an invalid new route", () => {
-    test("Then it should show a message feedback with text 'The route has been added succesfully'", async () => {
+    test("Then it should show a message feedback with text 'Could not add the desired route'", async () => {
       server.resetHandlers(...errorHandlers);
       const invalidRouteData = {
         name: "las xanas",
