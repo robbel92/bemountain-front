@@ -27,7 +27,7 @@ export const RoutesSlice = createSlice({
     }),
     addRoute: (
       currentState: RoutesStateStructure,
-      action: PayloadAction<RouteStructure>
+      action: PayloadAction<Partial<RouteStructure>>
     ): RoutesStateStructure => ({
       ...currentState,
       routes: [...currentState.routes, action.payload],

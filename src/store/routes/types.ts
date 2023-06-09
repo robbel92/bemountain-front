@@ -11,9 +11,9 @@ export interface RouteStructure {
 }
 
 export interface RoutesStateStructure {
-  routes: RouteStructure[];
+  routes: Partial<RouteStructure>[];
 }
 
 export interface PayloadRemove {
-  routeId: string;
+  routeId: string | undefined;
 }

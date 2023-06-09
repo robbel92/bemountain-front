@@ -6,7 +6,7 @@ import Button from "../Button/Button";
 import RouteCardStyled from "./RouteCardStyled";
 
 interface RouteCardProps {
-  route: RouteStructure;
+  route: Partial<RouteStructure>;
   isLazy: "eager" | "lazy";
 }
 

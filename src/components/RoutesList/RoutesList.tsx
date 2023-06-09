@@ -1,12 +1,9 @@
-import { RouteStructure } from "../../store/routes/types";
+import { useAppSelector } from "../../store";
 import RouteCard from "../RouteCard/RouteCard";
 import RoutesListStyled from "./RoutesListStyled";
 
-interface RoutesListProps {
-  routes: RouteStructure[];
-}
-
-const RoutesList = ({ routes }: RoutesListProps): React.ReactElement => {
+const RoutesList = (): React.ReactElement => {
+  const { routes } = useAppSelector((state) => state.routesStore);
   return (
     <RoutesListStyled>
       <h2>Routes</h2>

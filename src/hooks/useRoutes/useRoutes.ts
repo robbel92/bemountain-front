@@ -49,7 +49,7 @@ const useRoutes = () => {
     }
   }, [dispatch, requestConfig]);
 
-  const removeRoute = async (routeId: string) => {
+  const removeRoute = async (routeId: string | undefined) => {
     try {
       dispatch(showLoadingActionCreator());
       await axios.delete(`${apiUrl}${paths.routes}/${routeId}`, requestConfig);
@@ -71,7 +71,32 @@ const useRoutes = () => {
       dispatch(hideLoadingActionCreator());
     }
   };
-  return { getRoutes, removeRoute };
+  const addRoute = async (newRoute: Partial<RouteStructure>) => {
+    try {
+      const { data } = await axios.post<{ route: RouteStructure }>(
+        `${apiUrl}${paths.routes}/addRoute`,
+        newRoute,
+        requestConfig
+      );
+
+      dispatch(
+        showFeedbackActionCreator({
+          isError: false,
+          message: "The route has been added succesfully",
+        })
+      );
+
+      return data.route;
+    } catch (error) {
+      dispatch(
+        showFeedbackActionCreator({
+          isError: true,
+          message: "Could not add the desired route",
+        })
+      );
+    }
+  };
+  return { getRoutes, removeRoute, addRoute };
 };
 
 export default useRoutes;

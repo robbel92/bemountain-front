@@ -10,7 +10,6 @@ import useRoutes from "../../hooks/useRoutes/useRoutes";
 const RoutesPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
   const { getRoutes } = useRoutes();
-  const { routes } = useAppSelector((state) => state.routesStore);
   const { isLogged } = useAppSelector((state) => state.userStore);
 
   useEffect(() => {
@@ -36,7 +35,7 @@ const RoutesPage = (): React.ReactElement => {
       <Header />
       <ContainerStyled>
         <h2 className="title-page">World Routes</h2>
-        <RoutesList routes={routes} />
+        <RoutesList />
       </ContainerStyled>
     </RoutesPageStyled>
   );

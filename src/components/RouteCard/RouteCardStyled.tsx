@@ -11,6 +11,7 @@ const RouteCardStyled = styled.article`
     &__title {
       position: absolute;
       text-transform: uppercase;
+      word-break: break-all;
       color: white;
       width: 300px;
       padding: 20px;
