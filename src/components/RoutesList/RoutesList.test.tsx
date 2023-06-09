@@ -1,5 +1,4 @@
 import { screen } from "@testing-library/react";
-import { routesMock } from "../../mocks/routeMocks/routeMocks";
 import { renderWithProviders } from "../../utils/testUtils";
 import RoutesList from "./RoutesList";
 import { PreloadedState } from "@reduxjs/toolkit";
@@ -12,7 +11,7 @@ describe("Given a RoutesList component", () => {
     const expectedHeadingText = "Routes";
 
     renderWithProviders(
-      <RoutesList routes={routesMock} />,
+      <RoutesList />,
       currentUserStateMock as PreloadedState<RootState>
     );
 

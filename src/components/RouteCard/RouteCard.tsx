@@ -6,17 +6,19 @@ import Button from "../Button/Button";
 import RouteCardStyled from "./RouteCardStyled";
 
 interface RouteCardProps {
-  route: RouteStructure;
+  route: Partial<RouteStructure>;
   isLazy: "eager" | "lazy";
 }
 
 const RouteCard = ({ route, isLazy }: RouteCardProps): React.ReactElement => {
   const { removeRoute } = useRoutes();
   const dispatch = useAppDispatch();
-  const handleOnDelete = () => {
+
+  const handleOnDelete = async () => {
+    await removeRoute(route.id);
     dispatch(removeRouteActionCreator({ routeId: route.id }));
-    removeRoute(route.id);
   };
+
   return (
     <RouteCardStyled>
       <div className="card-container">

@@ -4,11 +4,11 @@ import FormStyled from "./FormStyled";
 import { RouteStructure } from "../../store/routes/types";
 
 interface FormProps {
-  actionOnSubmit: () => void;
+  actionOnSubmit: (newRoute: Partial<RouteStructure>) => void;
 }
 
 const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
-  const [routeData, setRouteData] = useState<Partial<RouteStructure>>({
+  const initialRouteData = {
     name: "",
     difficulty: "",
     photo: "",
@@ -16,10 +16,19 @@ const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
     distance: 0,
     elevationGain: 0,
     description: "",
-  });
+  };
+  const [routeData, setRouteData] =
+    useState<Partial<RouteStructure>>(initialRouteData);
+
   const isComplete = Object.values(routeData).every((value) => {
-    return value.toString().length > 2;
+    return value.toString().length > 0 && value.toString() !== "0";
   });
+
+  const handleOnSubmit = () => {
+    event?.preventDefault();
+    actionOnSubmit(routeData);
+    setRouteData(initialRouteData);
+  };
 
   const onChangeInputs = (
     event: React.ChangeEvent<
@@ -33,7 +42,7 @@ const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
   };
 
   return (
-    <FormStyled onSubmit={actionOnSubmit}>
+    <FormStyled onSubmit={handleOnSubmit}>
       <label htmlFor="name">Name</label>
       <input
         type="text"
@@ -48,7 +57,7 @@ const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
         id="distance"
         autoComplete="off"
         onChange={onChangeInputs}
-        value={routeData.distance}
+        value={Number(routeData.distance)}
       />
       <label htmlFor="difficulty">Difficulty</label>
       <select
@@ -68,7 +77,7 @@ const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
         id="elevationGain"
         autoComplete="off"
         onChange={onChangeInputs}
-        value={routeData.elevationGain}
+        value={Number(routeData.elevationGain)}
       />
       <label htmlFor="photo">Photo</label>
       <input
@@ -80,7 +89,7 @@ const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
       />
       <label htmlFor="ubication">Ubication</label>
       <input
-        type="url"
+        type="text"
         id="ubication"
         autoComplete="off"
         onChange={onChangeInputs}
