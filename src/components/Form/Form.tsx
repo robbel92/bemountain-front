@@ -19,6 +19,7 @@ const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
   };
   const [routeData, setRouteData] =
     useState<Partial<RouteStructure>>(initialRouteData);
+
   const isComplete = Object.values(routeData).every((value) => {
     return value.toString().length > 0 && value.toString() !== "0";
   });

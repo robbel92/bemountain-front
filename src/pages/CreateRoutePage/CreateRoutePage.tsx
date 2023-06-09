@@ -17,10 +17,8 @@ const CreateRoutePage = (): React.ReactElement => {
   const actionOnSubmit = async (newRoute: Partial<RouteStructure>) => {
     const route = await addRoute(newRoute);
 
-    if (route) {
-      dispatch(addRouteActionCreator(route));
-      navigate(paths.home);
-    }
+    dispatch(addRouteActionCreator(route as RouteStructure));
+    navigate(paths.routes);
   };
 
   return (

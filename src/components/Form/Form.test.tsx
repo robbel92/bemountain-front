@@ -2,7 +2,17 @@ import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 import { screen } from "@testing-library/react";
 import Form from "./Form";
 import userEvent from "@testing-library/user-event";
+import CreateRoutePage from "../../pages/CreateRoutePage/CreateRoutePage";
+import { store } from "../../store";
 import { vi } from "vitest";
+import Layout from "../Layout/Layout";
+import {
+  RouteObject,
+  RouterProvider,
+  createMemoryRouter,
+} from "react-router-dom";
+
+const spyDispatch = vi.spyOn(store, "dispatch");
 
 describe("Given a Form component", () => {
   describe("When it is rendered and the user types 'Admin' on name text field", () => {
@@ -23,7 +33,7 @@ describe("Given a Form component", () => {
     });
   });
   describe("When it is rendered, the user fills out the form and click ADD ROUTE button", () => {
-    test.only("Then the button must be enabled and when clicked it must call the actionOnClick function", async () => {
+    test("Then the button should be enabled and on click it should call the actionOnClick function which in turn calls the On function and displays the Feedback modal, then dispatches the addRouteAction creator function to add the route to the store", async () => {
       const labelName = "Name";
       const labelDistance = "Distance";
       const labelDifficulty = "Difficulty";
@@ -33,13 +43,15 @@ describe("Given a Form component", () => {
       const labelDescription = "Description";
       const textButton = "ADD ROUTE";
 
-      const valueNumber = "200";
+      const routes: RouteObject[] = [
+        { path: "/", element: <CreateRoutePage /> },
+      ];
 
-      const actionOnclick = vi.fn();
+      const router = createMemoryRouter(routes);
 
-      renderWithProviders(
-        wrapWithRouter(<Form actionOnSubmit={actionOnclick} />)
-      );
+      renderWithProviders(<RouterProvider router={router}></RouterProvider>);
+
+      renderWithProviders(wrapWithRouter(<Layout />));
 
       const inputName = screen.getByLabelText(labelName);
       const inputDistance = screen.getByLabelText(labelDistance);
@@ -66,7 +78,11 @@ describe("Given a Form component", () => {
 
       await userEvent.click(submitButton);
 
-      expect(actionOnclick).toHaveBeenCalled();
+      const closeButton = await screen.getByRole("button", { name: "CLOSE" });
+
+      await userEvent.click(closeButton);
+
+      await expect(spyDispatch).toHaveBeenCalledTimes(4);
     });
   });
 });
