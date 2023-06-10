@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { UserCredentials } from "../../store/user/types";
 import LoginFormStyled from "./LoginFormStyled";
+import Pagination from "../Pagination/Pagination";
 
 interface LoginFormProps {
   actionOnSubmit: (user: UserCredentials) => void;
@@ -57,6 +58,10 @@ const LoginForm = ({ actionOnSubmit }: LoginFormProps): React.ReactElement => {
       <button type="submit" className="form__login" disabled={isDisabled}>
         LOG IN
       </button>
+      <Pagination
+        onClickNextPage={() => ({})}
+        onClickPreviousPage={() => ({})}
+      />
     </LoginFormStyled>
   );
 };
