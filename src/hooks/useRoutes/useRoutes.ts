@@ -23,31 +23,38 @@ const useRoutes = () => {
     [token]
   );
 
-  const getRoutes = useCallback(async (): Promise<
-    RouteStructure[] | undefined
-  > => {
-    try {
-      dispatch(showLoadingActionCreator());
+  const getRoutes = useCallback(
+    async (
+      skip: number,
+      limit: number
+    ): Promise<{ routes: RouteStructure[]; totalRoutes: number }> => {
+      try {
+        dispatch(showLoadingActionCreator());
 
-      const { data: Routes } = await axios.get<RouteStructure[] | undefined>(
-        `${apiUrl}${paths.routes}`,
-        requestConfig
-      );
+        const { data } = await axios.get<{
+          routes: RouteStructure[];
+          totalRoutes: number;
+        }>(
+          `${apiUrl}${paths.routes}?limit=${limit}&skip=${skip}`,
+          requestConfig
+        );
 
-      dispatch(hideLoadingActionCreator());
+        dispatch(hideLoadingActionCreator());
 
-      return Routes;
-    } catch (error) {
-      dispatch(hideLoadingActionCreator());
-      dispatch(
-        showFeedbackActionCreator({
-          message: "Sorry, Routes could not be loaded",
-          isError: true,
-        })
-      );
-      throw new Error("Sorry, Routes could not be loaded");
-    }
-  }, [dispatch, requestConfig]);
+        return { routes: data.routes, totalRoutes: data.totalRoutes };
+      } catch (error) {
+        dispatch(hideLoadingActionCreator());
+        dispatch(
+          showFeedbackActionCreator({
+            message: "Sorry, Routes could not be loaded",
+            isError: true,
+          })
+        );
+        throw new Error("Sorry, Routes could not be loaded");
+      }
+    },
+    [dispatch, requestConfig]
+  );
 
   const removeRoute = async (routeId: string | undefined) => {
     try {

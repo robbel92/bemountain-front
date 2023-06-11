@@ -17,7 +17,7 @@ const LoginFormStyled = styled.form`
     }
     &__username,
     &__password {
-      padding: 15px 30px;
+      padding: 15px 15px;
       backdrop-filter: blur(1px);
       background: transparent;
       color: white;

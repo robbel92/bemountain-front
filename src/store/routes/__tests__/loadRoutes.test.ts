@@ -9,13 +9,18 @@ describe("Given a loadRoutes reducer", () => {
 
       const currentEmptyRoutesState: RoutesStateStructure = {
         routes: currentEmptyRoutes,
+        totalRoutes: 0,
       };
 
-      const loadRoutesActionResult = loadRoutesActionCreator(routesMock);
+      const loadRoutesActionResult = loadRoutesActionCreator({
+        routes: routesMock,
+        totalRoutes: routesMock.length,
+      });
 
       const expectedNewRoutesState: RoutesStateStructure = {
         ...currentEmptyRoutesState,
         routes: routesMock,
+        totalRoutes: routesMock.length,
       };
 
       const newRoutesState: RoutesStateStructure = routesReducer(

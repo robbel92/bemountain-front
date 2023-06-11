@@ -9,6 +9,7 @@ describe("Given a addRoute reducer", () => {
 
       const currentRoutesState: RoutesStateStructure = {
         routes: routesMock,
+        totalRoutes: routesMock.length,
       };
 
       const newRoutesState = routesReducer(

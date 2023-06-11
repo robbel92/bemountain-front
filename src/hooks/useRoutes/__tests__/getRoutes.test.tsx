@@ -8,7 +8,10 @@ import { server } from "../../../mocks/server";
 describe("Given a getRoutes function", () => {
   describe("When it is called", () => {
     test("Then it should return a list with 4 routes", async () => {
-      const expectedResponse = routesMock;
+      const expectedResponse = {
+        routes: routesMock,
+        totalRoutes: routesMock.length,
+      };
 
       const {
         result: {
@@ -16,7 +19,7 @@ describe("Given a getRoutes function", () => {
         },
       } = renderHook(() => useRoutes(), { wrapper: wrapWithProviders });
 
-      const response = await getRoutes();
+      const response = await getRoutes(0, 0);
 
       expect(response).toStrictEqual(expectedResponse);
     });
@@ -33,7 +36,7 @@ describe("Given a getRoutes function", () => {
         },
       } = renderHook(() => useRoutes(), { wrapper: wrapWithProviders });
 
-      const routes = getRoutes();
+      const routes = getRoutes(0, 10);
 
       expect(routes).rejects.toThrowError(expectedError);
     });
