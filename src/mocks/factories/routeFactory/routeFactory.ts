@@ -12,7 +12,7 @@ const routeDataFactory = Factory.define<RouteStructure>(() => ({
   difficulty: faker.helpers.arrayElement(["Fácil", "Moderada", "Difícil"]),
   distance: faker.number.int({ min: 5, max: 200 }),
   elevationGain: faker.number.int({ min: 5, max: 10000 }),
-  name: faker.commerce.product(),
+  name: faker.commerce.productName(),
   photo: faker.image.url(),
   ubication: faker.location.city(),
 }));

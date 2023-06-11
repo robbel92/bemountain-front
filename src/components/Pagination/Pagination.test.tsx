@@ -1,6 +1,7 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "../../utils/testUtils";
 import Pagination from "./Pagination";
+import { routesMock } from "../../mocks/routeMocks/routeMocks";
 
 describe("Given a Pagination component", () => {
   describe("When it is rendered", () => {
@@ -10,9 +11,12 @@ describe("Given a Pagination component", () => {
 
       renderWithProviders(
         <Pagination
+          skip={0}
+          count={1}
           onClickNextPage={() => ({})}
           onClickPreviousPage={() => ({})}
-        />
+        />,
+        { routesStore: { routes: routesMock, totalRoutes: routesMock.length } }
       );
 
       const nextButton = screen.getByRole("button", { name: textNextButton });

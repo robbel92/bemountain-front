@@ -3,6 +3,7 @@ import { PayloadRemove, RouteStructure, RoutesStateStructure } from "./types";
 
 const initialRoutesState: RoutesStateStructure = {
   routes: [],
+  totalRoutes: 0,
 };
 
 export const RoutesSlice = createSlice({
@@ -11,10 +12,11 @@ export const RoutesSlice = createSlice({
   reducers: {
     loadRoutes: (
       currentState,
-      action: PayloadAction<RouteStructure[]>
+      action: PayloadAction<{ routes: RouteStructure[]; totalRoutes: number }>
     ): RoutesStateStructure => ({
       ...currentState,
-      routes: [...action.payload],
+      routes: [...action.payload.routes],
+      totalRoutes: action.payload.totalRoutes,
     }),
     removeRoute: (
       currentState: RoutesStateStructure,

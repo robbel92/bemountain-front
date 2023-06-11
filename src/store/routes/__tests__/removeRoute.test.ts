@@ -7,6 +7,7 @@ describe("Given a removeRoute reducer", () => {
     test("Then it should return a collection of routes without route las xanas", () => {
       const currentRoutesState: RoutesStateStructure = {
         routes: routesNamesMock,
+        totalRoutes: routesNamesMock.length,
       };
       routesNamesMock.shift();
       const expectedNewRoutesState = {
