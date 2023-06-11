@@ -26,18 +26,22 @@ const useRoutes = () => {
   const getRoutes = useCallback(
     async (
       skip: number,
-      limit: number
+      limit: number,
+      filter?: string,
+      filterValue?: string
     ): Promise<{ routes: RouteStructure[]; totalRoutes: number }> => {
+      let url = `${apiUrl}${paths.routes}?limit=${limit}&skip=${skip}`;
+
+      if (filter) {
+        url += `&filter=${filter}&filterValue=${filterValue}`;
+      }
       try {
         dispatch(showLoadingActionCreator());
 
         const { data } = await axios.get<{
           routes: RouteStructure[];
           totalRoutes: number;
-        }>(
-          `${apiUrl}${paths.routes}?limit=${limit}&skip=${skip}`,
-          requestConfig
-        );
+        }>(`${url}`, requestConfig);
 
         dispatch(hideLoadingActionCreator());
 

@@ -2,7 +2,7 @@ import { renderHook } from "@testing-library/react";
 import useRoutes from "../useRoutes";
 import { wrapWithProviders } from "../../../utils/testUtils";
 import { routesMock } from "../../../mocks/routeMocks/routeMocks";
-import { errorHandlers } from "../../../mocks/handlers";
+import { errorHandlers, filterHandlers } from "../../../mocks/handlers";
 import { server } from "../../../mocks/server";
 
 describe("Given a getRoutes function", () => {
@@ -39,6 +39,24 @@ describe("Given a getRoutes function", () => {
       const routes = getRoutes(0, 10);
 
       expect(routes).rejects.toThrowError(expectedError);
+    });
+  });
+
+  describe("when receives by querys a filter 'difficulty' and a filterValue 'Easy'.", () => {
+    test("Then it should return a collection of routes with the difficulty property and it's value on 'Easy'", async () => {
+      server.resetHandlers(...filterHandlers);
+
+      const {
+        result: {
+          current: { getRoutes },
+        },
+      } = renderHook(() => useRoutes(), { wrapper: wrapWithProviders });
+
+      const { routes } = await getRoutes(0, 5, "difficulty", "Easy");
+
+      routes.forEach((route) => {
+        expect(route.difficulty).toBe("Easy");
+      });
     });
   });
 });

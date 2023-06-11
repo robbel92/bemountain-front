@@ -20,5 +20,7 @@ const routeDataFactory = Factory.define<RouteStructure>(() => ({
 export const getRouteDataMock = (data?: Partial<RouteStructure>) =>
   routeDataFactory.build(data);
 
-export const getRoutesDataMock = (howMany: number, data?: RouteStructure) =>
-  routeDataFactory.buildList(howMany, data);
+export const getRoutesDataMock = (
+  howMany: number,
+  data?: Partial<RouteStructure>
+) => routeDataFactory.buildList(howMany, data);

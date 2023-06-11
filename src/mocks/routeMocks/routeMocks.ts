@@ -6,6 +6,10 @@ import {
 
 export const routesMock = getRoutesDataMock(49);
 
+export const routesDifficultyMock = getRoutesDataMock(10, {
+  difficulty: "Easy",
+});
+
 export const routeMock = getRouteDataMock();
 
 export const routesNamesMock: RouteStructure[] = [];
