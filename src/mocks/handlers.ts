@@ -4,6 +4,7 @@ import { apiUrl } from "../hooks/useUser/useUser";
 import { paths } from "../routers/paths/paths";
 import {
   routeMock,
+  routesDifficultyMock,
   routesMock,
   routesMockSkipZero,
 } from "./routeMocks/routeMocks";
@@ -66,6 +67,24 @@ export const variantsHandlers = [
       ctx.json({
         routes: routesMockSkipZero,
         totalRoutes: routesMockSkipZero.length,
+      })
+    );
+  }),
+];
+
+export const filterHandlers = [
+  rest.get(`${apiUrl}${paths.routes}`, (req, res, ctx) => {
+    const searchParams = req.url.searchParams;
+    searchParams.set("skip", "0");
+    searchParams.set("limit", "5");
+    searchParams.set("filter", "difficulty");
+    searchParams.set("filterValue", "Easy");
+
+    return res(
+      ctx.status(200),
+      ctx.json({
+        routes: routesDifficultyMock,
+        totalRoutes: routesDifficultyMock.length,
       })
     );
   }),
