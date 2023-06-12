@@ -17,7 +17,7 @@ const RouteCard = ({ route, isLazy }: RouteCardProps): React.ReactElement => {
 
   const handleOnDelete = async () => {
     await removeRoute(route.id);
-    window.location.reload();
+
     dispatch(removeRouteActionCreator({ routeId: route.id }));
   };
 
@@ -59,11 +59,13 @@ const RouteCard = ({ route, isLazy }: RouteCardProps): React.ReactElement => {
         </div>
       )}
       <div className="card-data">
-        <h2 className="difficulty">Dificultad</h2>
-        <span className="difficulty-data">{route.difficulty}</span>
-        <h2 className="distance">Distancia</h2>
+        <h2 className="difficulty">Difficulty</h2>
+        <span className="difficulty-data" aria-label="difficulty">
+          {route.difficulty}
+        </span>
+        <h2 className="distance">Distance</h2>
         <span className="distance-data">{route.distance}Km</span>
-        <h2 className="ubication">Ubicacíon</h2>
+        <h2 className="ubication">Ubication</h2>
         <span className="ubication-data">{route.ubication}</span>
         <img
           src={route.authorImage}

@@ -18,7 +18,7 @@ const CreateRoutePage = (): React.ReactElement => {
     const route = await addRoute(newRoute);
 
     dispatch(addRouteActionCreator(route as RouteStructure));
-    navigate(paths.routes);
+    navigate(paths.home);
   };
 
   return (

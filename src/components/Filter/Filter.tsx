@@ -17,7 +17,12 @@ const Filter = ({
   };
 
   return (
-    <FilterStyled name="difficulty" id="difficulty" onChange={onChangeInputs}>
+    <FilterStyled
+      name="difficulty"
+      id="difficulty"
+      onChange={onChangeInputs}
+      aria-label="filter"
+    >
       <option value="">DIFFICULTY</option>
       <option value="Easy">Easy</option>
       <option value="Moderate">Moderate</option>
