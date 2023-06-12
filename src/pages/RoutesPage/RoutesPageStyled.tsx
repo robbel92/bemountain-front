@@ -9,7 +9,7 @@ const RoutesPageStyled = styled.main`
 
   .title-page {
     color: white;
-    font-size: 30px;
+    font-size: 60px;
   }
 `;
 export default RoutesPageStyled;

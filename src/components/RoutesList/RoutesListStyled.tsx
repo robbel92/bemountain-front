@@ -11,6 +11,7 @@ const RoutesListStyled = styled.div`
     }
 
     &__title {
+      opacity: 0;
       text-align: center;
       color: white;
       font-weight: 600;
