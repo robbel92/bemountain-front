@@ -2,12 +2,16 @@ import { screen, waitFor } from "@testing-library/react";
 import RoutesPage from "./RoutesPage";
 import { LazyRoutesPage } from "../../routers/LazyPages";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
-import { routesMock, routesNamesMock } from "../../mocks/routeMocks/routeMocks";
+import {
+  routesDifficultyMock,
+  routesMock,
+  routesNamesMock,
+} from "../../mocks/routeMocks/routeMocks";
 import { tokenMock } from "../../mocks/userMocks/userMocks";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import { server } from "../../mocks/server";
-import { variantsHandlers } from "../../mocks/handlers";
+import { filterHandlers, variantsHandlers } from "../../mocks/handlers";
 
 describe("Given a RoutesPage page", () => {
   describe("When it is rendered", () => {
@@ -84,6 +88,27 @@ describe("Given a RoutesPage page", () => {
       });
       expect(previousButton).toBeEnabled();
       await userEvent.click(previousButton);
+    });
+  });
+  describe("When it is rendered and the user choose a option 'Easy to filter", () => {
+    test("The it should show a list of routes with the property difficulty on Easy", async () => {
+      server.resetHandlers(...filterHandlers);
+      renderWithProviders(wrapWithRouter(<RoutesPage />), {
+        routesStore: {
+          routes: routesDifficultyMock,
+          totalRoutes: routesDifficultyMock.length,
+        },
+      });
+
+      const select = screen.getByLabelText("filter");
+
+      await userEvent.selectOptions(select, "Easy");
+
+      const propertyDifficulty = screen.getAllByLabelText("difficulty");
+
+      propertyDifficulty.forEach((propierty) =>
+        expect(propierty).toHaveTextContent("Easy")
+      );
     });
   });
 });

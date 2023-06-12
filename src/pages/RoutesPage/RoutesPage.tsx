@@ -7,6 +7,7 @@ import { loadRoutesActionCreator } from "../../store/routes/routesSlice";
 import RoutesPageStyled from "./RoutesPageStyled";
 import useRoutes from "../../hooks/useRoutes/useRoutes";
 import Pagination from "../../components/Pagination/Pagination";
+import Filter from "../../components/Filter/Filter";
 
 const RoutesPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
@@ -16,6 +17,7 @@ const RoutesPage = (): React.ReactElement => {
   const limit = 5;
   const [count, setCount] = useState(0);
   const [skip, setSkip] = useState(0);
+  const [filterValue, setFilterValue] = useState("");
 
   const nextPage = () => {
     setSkip(skip + limit);
@@ -25,12 +27,24 @@ const RoutesPage = (): React.ReactElement => {
 
   const previousPage = () => {
     setSkip(skip - limit);
+    setCount(count - 1);
     window.scrollTo(0, 0);
   };
 
   useEffect(() => {
+    const params = filterValue
+      ? {
+          skip: skip,
+          limit: limit,
+          filter: "difficulty",
+          filterValue: filterValue,
+        }
+      : {
+          skip: skip,
+          limit: limit,
+        };
     (async () => {
-      const { routes, totalRoutes } = await getRoutes(skip, limit);
+      const { routes, totalRoutes } = await getRoutes({ ...params });
 
       if (routes) {
         dispatch(
@@ -47,12 +61,18 @@ const RoutesPage = (): React.ReactElement => {
         parent.insertBefore(preconnectElement, firstChild);
       }
     })();
-  }, [dispatch, getRoutes, isLogged, limit, skip]);
+  }, [dispatch, filterValue, getRoutes, isLogged, limit, skip]);
 
   return (
     <RoutesPageStyled>
       <Header />
       <ContainerStyled>
+        <Filter
+          setFilterValue={setFilterValue}
+          setSkip={setSkip}
+          setCount={setCount}
+        />
+
         <h2 className="title-page">World Routes</h2>
         <RoutesList />
         <Pagination

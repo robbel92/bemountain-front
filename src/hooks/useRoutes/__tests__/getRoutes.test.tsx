@@ -4,6 +4,10 @@ import { wrapWithProviders } from "../../../utils/testUtils";
 import { routesMock } from "../../../mocks/routeMocks/routeMocks";
 import { errorHandlers, filterHandlers } from "../../../mocks/handlers";
 import { server } from "../../../mocks/server";
+import {
+  paramsMock,
+  paramsMockWithFilter,
+} from "../../../mocks/utilsMocks/utilsMocks";
 
 describe("Given a getRoutes function", () => {
   describe("When it is called", () => {
@@ -19,7 +23,7 @@ describe("Given a getRoutes function", () => {
         },
       } = renderHook(() => useRoutes(), { wrapper: wrapWithProviders });
 
-      const response = await getRoutes(0, 0);
+      const response = await getRoutes({ ...paramsMockWithFilter });
 
       expect(response).toStrictEqual(expectedResponse);
     });
@@ -36,7 +40,7 @@ describe("Given a getRoutes function", () => {
         },
       } = renderHook(() => useRoutes(), { wrapper: wrapWithProviders });
 
-      const routes = getRoutes(0, 10);
+      const routes = getRoutes({ ...paramsMock });
 
       expect(routes).rejects.toThrowError(expectedError);
     });
@@ -52,7 +56,7 @@ describe("Given a getRoutes function", () => {
         },
       } = renderHook(() => useRoutes(), { wrapper: wrapWithProviders });
 
-      const { routes } = await getRoutes(0, 5, "difficulty", "Easy");
+      const { routes } = await getRoutes({ ...paramsMock });
 
       routes.forEach((route) => {
         expect(route.difficulty).toBe("Easy");

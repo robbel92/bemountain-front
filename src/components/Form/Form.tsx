@@ -26,8 +26,8 @@ const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
     return value.toString().length > 0 && value.toString() !== "0";
   });
 
-  const handleOnSubmit = () => {
-    event?.preventDefault();
+  const handleOnSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
     actionOnSubmit({ ...routeData, authorImage: image, authorName: name });
     setRouteData(initialRouteData);
   };

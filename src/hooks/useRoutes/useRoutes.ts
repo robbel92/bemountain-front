@@ -23,13 +23,23 @@ const useRoutes = () => {
     [token]
   );
 
+  interface params {
+    skip: number;
+    limit: number;
+    filter?: string;
+    filterValue?: string;
+  }
+
   const getRoutes = useCallback(
-    async (
-      skip: number,
-      limit: number,
-      filter?: string,
-      filterValue?: string
-    ): Promise<{ routes: RouteStructure[]; totalRoutes: number }> => {
+    async ({
+      limit,
+      skip,
+      filter,
+      filterValue,
+    }: params): Promise<{
+      routes: RouteStructure[];
+      totalRoutes: number;
+    }> => {
       let url = `${apiUrl}${paths.routes}?limit=${limit}&skip=${skip}`;
 
       if (filter) {
