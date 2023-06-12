@@ -7,6 +7,7 @@ const RoutesList = (): React.ReactElement => {
   return (
     <RoutesListStyled>
       <h2 className="routes__title">Routes</h2>
+      {routes.length === 0 && <p className="notFound">Routes not found</p>}
       <ul className="routes__list">
         {routes.map((route, index) => (
           <li className="routes__card" key={route.id}>

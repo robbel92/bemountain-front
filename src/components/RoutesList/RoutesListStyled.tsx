@@ -23,6 +23,16 @@ const RoutesListStyled = styled.div`
       border: solid 3px #ffffff24;
     }
   }
+
+  .notFound {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    font-size: 50px;
+    border-radius: 10px;
+    margin-top: 20px;
+    background-color: #0000001a;
+  }
 `;
 
 export default RoutesListStyled;

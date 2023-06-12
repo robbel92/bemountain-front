@@ -17,6 +17,7 @@ const RouteCard = ({ route, isLazy }: RouteCardProps): React.ReactElement => {
 
   const handleOnDelete = async () => {
     await removeRoute(route.id);
+    window.location.reload();
     dispatch(removeRouteActionCreator({ routeId: route.id }));
   };
 

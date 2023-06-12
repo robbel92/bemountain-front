@@ -27,6 +27,7 @@ const RoutesPage = (): React.ReactElement => {
 
   const previousPage = () => {
     setSkip(skip - limit);
+    setCount(count - 1);
     window.scrollTo(0, 0);
   };
 
@@ -66,7 +67,12 @@ const RoutesPage = (): React.ReactElement => {
     <RoutesPageStyled>
       <Header />
       <ContainerStyled>
-        <Filter setFilterValue={setFilterValue} />
+        <Filter
+          setFilterValue={setFilterValue}
+          setSkip={setSkip}
+          setCount={setCount}
+        />
+
         <h2 className="title-page">World Routes</h2>
         <RoutesList />
         <Pagination

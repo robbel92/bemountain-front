@@ -9,7 +9,7 @@ const Feedback = (): React.ReactElement => {
 
   const handleOnClose = () => {
     dispatch(hideFeedbackActionCreator());
-    window.location.reload();
+
     window.scrollTo(0, 0);
   };
 

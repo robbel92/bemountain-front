@@ -4,6 +4,10 @@ import { wrapWithProviders } from "../../../utils/testUtils";
 import { routesMock } from "../../../mocks/routeMocks/routeMocks";
 import { errorHandlers, filterHandlers } from "../../../mocks/handlers";
 import { server } from "../../../mocks/server";
+import {
+  paramsMock,
+  paramsMockWithFilter,
+} from "../../../mocks/utilsMocks/utilsMocks";
 
 describe("Given a getRoutes function", () => {
   describe("When it is called", () => {
@@ -19,7 +23,7 @@ describe("Given a getRoutes function", () => {
         },
       } = renderHook(() => useRoutes(), { wrapper: wrapWithProviders });
 
-      const response = await getRoutes({ ...paramsMock });
+      const response = await getRoutes({ ...paramsMockWithFilter });
 
       expect(response).toStrictEqual(expectedResponse);
     });
