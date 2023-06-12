@@ -19,7 +19,7 @@ describe("Given a getRoutes function", () => {
         },
       } = renderHook(() => useRoutes(), { wrapper: wrapWithProviders });
 
-      const response = await getRoutes(0, 0);
+      const response = await getRoutes({ ...paramsMock });
 
       expect(response).toStrictEqual(expectedResponse);
     });
@@ -36,7 +36,7 @@ describe("Given a getRoutes function", () => {
         },
       } = renderHook(() => useRoutes(), { wrapper: wrapWithProviders });
 
-      const routes = getRoutes(0, 10);
+      const routes = getRoutes({ ...paramsMock });
 
       expect(routes).rejects.toThrowError(expectedError);
     });
@@ -52,7 +52,7 @@ describe("Given a getRoutes function", () => {
         },
       } = renderHook(() => useRoutes(), { wrapper: wrapWithProviders });
 
-      const { routes } = await getRoutes(0, 5, "difficulty", "Easy");
+      const { routes } = await getRoutes({ ...paramsMock });
 
       routes.forEach((route) => {
         expect(route.difficulty).toBe("Easy");
