@@ -9,6 +9,21 @@ const NavigationStyled = styled.nav`
   align-items: center;
   background-color: #0000008f;
 
+  @keyframes scaleGuai {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .active {
+    animation-name: scaleGuai;
+    animation-duration: 0.1s;
+    transform: scale(1.8);
+  }
+
   .logo {
     &__create,
     &__logout {
