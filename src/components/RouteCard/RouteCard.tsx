@@ -13,6 +13,7 @@ interface RouteCardProps {
 const RouteCard = ({ route, isLazy }: RouteCardProps): React.ReactElement => {
   const { removeRoute } = useRoutes();
   const { id } = useAppSelector((state) => state.userStore);
+
   const dispatch = useAppDispatch();
 
   const handleOnDelete = async () => {
