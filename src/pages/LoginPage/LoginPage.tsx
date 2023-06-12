@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/Header/Header";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 import useToken from "../../hooks/useToken/useToken";
@@ -36,7 +35,13 @@ const LoginPage = (): React.ReactElement => {
 
   return (
     <LoginPageStyled>
-      <Header />
+      <img
+        src="/media/bemount-logo.svg"
+        alt="bemount web logo"
+        width={250}
+        height={100}
+        className="logo__bemount"
+      />
       <LoginForm actionOnSubmit={loginOnSubmit} />
     </LoginPageStyled>
   );

@@ -11,8 +11,8 @@ const Header = (): React.ReactElement => {
       <img
         src="/media/bemount-logo.svg"
         alt="bemount web logo"
-        width={200}
-        height={80}
+        width={250}
+        height={100}
         className="logo__bemount"
       />
       {pathname !== paths.login && <Navigation />}

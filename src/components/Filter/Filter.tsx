@@ -23,7 +23,7 @@ const Filter = ({
       onChange={onChangeInputs}
       aria-label="filter"
     >
-      <option value="">DIFFICULTY</option>
+      <option value="">FILTER BY DIFFICULTY</option>
       <option value="Easy">Easy</option>
       <option value="Moderate">Moderate</option>
       <option value="Hard">Hard</option>

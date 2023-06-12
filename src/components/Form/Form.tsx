@@ -53,13 +53,13 @@ const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
         onChange={onChangeInputs}
         value={routeData.name}
       />
-      <label htmlFor="distance">Distance</label>
+      <label htmlFor="distance">Distance (Km)</label>
       <input
         type="number"
         id="distance"
         autoComplete="off"
         onChange={onChangeInputs}
-        value={Number(routeData.distance)}
+        value={routeData.distance}
       />
       <label htmlFor="difficulty">Difficulty</label>
       <select
@@ -73,15 +73,15 @@ const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
         <option value="Moderate">Moderate</option>
         <option value="Hard">Hard</option>
       </select>
-      <label htmlFor="elevationGain">Elevation Gain</label>
+      <label htmlFor="elevationGain">Elevation Gain (m)</label>
       <input
         type="number"
         id="elevationGain"
         autoComplete="off"
         onChange={onChangeInputs}
-        value={Number(routeData.elevationGain)}
+        value={routeData.elevationGain}
       />
-      <label htmlFor="photo">Photo</label>
+      <label htmlFor="photo">Photo (Url)</label>
       <input
         type="url"
         id="photo"

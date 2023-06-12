@@ -7,7 +7,6 @@ const NavigationStyled = styled.nav`
   width: 100%;
   padding: 10px 20px;
   align-items: center;
-  background-color: #0000008f;
 
   @keyframes scaleGuai {
     from {
@@ -21,7 +20,10 @@ const NavigationStyled = styled.nav`
   .active {
     animation-name: scaleGuai;
     animation-duration: 0.1s;
-    transform: scale(1.8);
+    transform: scale(1.2);
+    border-radius: 10px;
+    border: 3.5px outset #e9c696;
+    padding: 1px 5px;
   }
 
   .logo {
