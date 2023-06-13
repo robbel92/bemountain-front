@@ -31,6 +31,12 @@ export const handlers = [
     );
   }),
 
+  rest.get(`${apiUrl}${paths.routes}/:routeId`, (_req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({ message: "The route has been successfully modified" })
+    );
+  }),
   rest.post(`${apiUrl}${paths.routes}/addRoute`, (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json(routeMock));
   }),
@@ -46,6 +52,12 @@ export const errorHandlers = [
 
     ctx.set(`Authorization`, invalidAuthorization);
     return res(ctx.status(401));
+  }),
+  rest.get(`${apiUrl}${paths.routes}/:routeId`, (_req, res, ctx) => {
+    return res(
+      ctx.status(404),
+      ctx.json({ message: "Sorry, the route could not be modified" })
+    );
   }),
 
   rest.post(`${apiUrl}${paths.routes}/addRoute`, (_req, res, ctx) => {
