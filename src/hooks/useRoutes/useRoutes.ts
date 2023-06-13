@@ -117,7 +117,36 @@ const useRoutes = () => {
       );
     }
   };
-  return { getRoutes, removeRoute, addRoute };
+  const getRoute = async (routeId: string) => {
+    try {
+      dispatch(showLoadingActionCreator());
+      const {
+        data: { route },
+      } = await axios.get<{ route: RouteStructure }>(
+        `${apiUrl}${paths.routes}/${routeId}`,
+        requestConfig
+      );
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        showFeedbackActionCreator({
+          message: "Route has been modified succesfully",
+          isError: false,
+        })
+      );
+
+      return route;
+    } catch (error) {
+      dispatch(
+        showFeedbackActionCreator({
+          message: "Sorry, the route could not be modified",
+          isError: true,
+        })
+      );
+      dispatch(hideLoadingActionCreator());
+    }
+  };
+
+  return { getRoutes, removeRoute, addRoute, getRoute };
 };
 
 export default useRoutes;
