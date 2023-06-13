@@ -31,12 +31,12 @@ export const handlers = [
     );
   }),
 
-  rest.get(`${apiUrl}${paths.routes}/:routeId`, (_req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json({ message: "The route has been successfully modified" })
-    );
-  }),
+  rest.get(
+    `${apiUrl}${paths.routes}/6487782f40386e8006e3dad9`,
+    (_req, res, ctx) => {
+      return res(ctx.status(200), ctx.json({ route: routeMock }));
+    }
+  ),
   rest.post(`${apiUrl}${paths.routes}/addRoute`, (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json(routeMock));
   }),

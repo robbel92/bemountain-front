@@ -8,6 +8,7 @@ import {
   LazyRoutesPage,
 } from "./LazyPages";
 import CreateRoutePage from "../pages/CreateRoutePage/CreateRoutePage";
+import RouteDetailsPage from "../pages/RouteDetailsPage/RouteDetailsPage";
 
 const routes: RouteObject[] = [
   {
@@ -39,6 +40,10 @@ const routes: RouteObject[] = [
       {
         path: "/form",
         element: <CreateRoutePage />,
+      },
+      {
+        path: "/routes/:routeId",
+        element: <RouteDetailsPage />,
       },
       {
         path: "/*",

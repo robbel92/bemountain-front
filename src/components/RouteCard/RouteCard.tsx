@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import useRoutes from "../../hooks/useRoutes/useRoutes";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { removeRouteActionCreator } from "../../store/routes/routesSlice";
@@ -15,6 +16,11 @@ const RouteCard = ({ route, isLazy }: RouteCardProps): React.ReactElement => {
   const { id } = useAppSelector((state) => state.userStore);
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const handleOnDetails = () => {
+    navigate(`/routes/${route.id}`);
+  };
 
   const handleOnDelete = async () => {
     await removeRoute(route.id);
@@ -24,7 +30,13 @@ const RouteCard = ({ route, isLazy }: RouteCardProps): React.ReactElement => {
 
   return (
     <RouteCardStyled>
-      <div className="card-container">
+      <div
+        className="card-container"
+        onClick={handleOnDetails}
+        onKeyUp={handleOnDetails}
+        role="button"
+        tabIndex={0}
+      >
         <h2 className="card-container__title">{route.name}</h2>
         <img
           src={route.photo}
