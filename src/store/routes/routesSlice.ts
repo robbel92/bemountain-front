@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { PayloadRemove, RouteStructure, RoutesStateStructure } from "./types";
 
-const initialRoutesState: RoutesStateStructure = {
+export const initialRoutesState: RoutesStateStructure = {
   routes: [],
   totalRoutes: 0,
   currentRoute: {
@@ -19,7 +19,7 @@ const initialRoutesState: RoutesStateStructure = {
   },
 };
 
-export const RoutesSlice = createSlice({
+export const routesSlice = createSlice({
   name: "routes",
   initialState: initialRoutesState,
   reducers: {
@@ -57,9 +57,9 @@ export const RoutesSlice = createSlice({
   },
 });
 
-export const { loadRoutes: loadRoutesActionCreator } = RoutesSlice.actions;
-export const { removeRoute: removeRouteActionCreator } = RoutesSlice.actions;
-export const { addRoute: addRouteActionCreator } = RoutesSlice.actions;
+export const { loadRoutes: loadRoutesActionCreator } = routesSlice.actions;
+export const { removeRoute: removeRouteActionCreator } = routesSlice.actions;
+export const { addRoute: addRouteActionCreator } = routesSlice.actions;
 export const { loadCurrentRoute: loadCurrentRouteActionCreator } =
-  RoutesSlice.actions;
-export const routesReducer = RoutesSlice.reducer;
+  routesSlice.actions;
+export const routesReducer = routesSlice.reducer;

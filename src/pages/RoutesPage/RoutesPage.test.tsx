@@ -36,6 +36,7 @@ describe("Given a RoutesPage page", () => {
         routesStore: {
           routes: routesNamesMock,
           totalRoutes: routesNamesMock.length,
+          currentRoute: routesNamesMock[0],
         },
         userStore: {
           id: routesNamesMock[0].author.toString(),
@@ -69,6 +70,7 @@ describe("Given a RoutesPage page", () => {
         routesStore: {
           routes: routesMock,
           totalRoutes: routesMock.length,
+          currentRoute: routesNamesMock[0],
         },
       });
 
@@ -97,6 +99,7 @@ describe("Given a RoutesPage page", () => {
         routesStore: {
           routes: routesDifficultyMock,
           totalRoutes: routesDifficultyMock.length,
+          currentRoute: routesNamesMock[0],
         },
       });
 
