@@ -16,7 +16,7 @@ const RouteDetailsPage = (): React.ReactElement => {
   const { getRoute, removeRoute } = useRoutes();
   const dispatch = useAppDispatch();
   const route = useAppSelector((state) => state.routesStore.currentRoute);
-  const { id } = useAppSelector((state) => state.userStore);
+  const { id, isLogged } = useAppSelector((state) => state.userStore);
   const navigate = useNavigate();
 
   const handleOnDelete = async () => {
@@ -29,15 +29,21 @@ const RouteDetailsPage = (): React.ReactElement => {
 
   const routeId = pathname.substring(8, 32);
 
+  const handleOnModify = () => {
+    navigate(`${paths.routes}/modifyRoute`);
+  };
+
   useEffect(() => {
     (async () => {
-      const route = await getRoute(routeId);
-      if (!route) {
-        return;
+      if (isLogged) {
+        const route = await getRoute(routeId);
+        if (!route) {
+          return;
+        }
+        dispatch(loadCurrentRouteActionCreator(route));
       }
-      dispatch(loadCurrentRouteActionCreator(route));
     })();
-  }, [dispatch, getRoute, routeId]);
+  }, [dispatch, getRoute, isLogged, routeId]);
 
   return (
     <RouteDetailsPageStyled>
@@ -57,7 +63,11 @@ const RouteDetailsPage = (): React.ReactElement => {
           </div>
           {route.author === id && (
             <div className="card-buttons">
-              <Button aria_label="create" type="button">
+              <Button
+                aria_label="edit"
+                type="button"
+                actionOnClick={handleOnModify}
+              >
                 <img
                   src="/media/icon-edit.svg"
                   alt="icon with pencil edit"

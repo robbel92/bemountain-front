@@ -19,3 +19,7 @@ export const LazyRouteDetailsPage = lazy(
 export const LazyCreateRoutePage = lazy(
   () => import("../pages/CreateRoutePage/CreateRoutePage.js")
 );
+
+export const LazyModifyRoutePage = lazy(
+  () => import("../pages/ModifyRoutePage/ModifyRoutePage.js")
+);

@@ -30,7 +30,7 @@ describe("Given a getRoute function", () => {
 
       const response = await getRoute(routeId);
 
-      expect(response).toHaveProperty(["id"]);
+      expect(response).toHaveProperty("id");
     });
   });
 

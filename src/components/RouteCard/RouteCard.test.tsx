@@ -9,6 +9,7 @@ import RouteDetailsPage from "../../pages/RouteDetailsPage/RouteDetailsPage";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 import { server } from "../../mocks/server";
 import { variantsHandlers } from "../../mocks/handlers";
+import ModifyRoutePage from "../../pages/ModifyRoutePage/ModifyRoutePage";
 
 beforeAll(() => {
   vi.clearAllMocks();
@@ -80,6 +81,44 @@ describe("Given a RouteCard component", () => {
       const description = screen.getByText(routesNamesMock[0].description);
 
       expect(description).toBeInTheDocument();
+    });
+  });
+  describe("When it is rendered and the user clicks the button modify", () => {
+    test("Then it should shows a page for modify the route", async () => {
+      const textButtonEdit = "edit";
+      const textButtonModify = "MODIFY ROUTE";
+
+      renderWithProviders(
+        wrapWithRouter(
+          <RouteCard isLazy="eager" route={routesNamesMock[0]} />,
+          <ModifyRoutePage />,
+          "routes/modifyRoute"
+        ),
+        {
+          routesStore: {
+            currentRoute: routesNamesMock[0],
+            routes: routesNamesMock,
+            totalRoutes: routesNamesMock.length,
+          },
+          userStore: {
+            id: routesNamesMock[0].author,
+            image: "",
+            name: "Administrator",
+            token: "token",
+            isLogged: true,
+          },
+        }
+      );
+
+      const buttonEdit = await screen.getByLabelText(textButtonEdit);
+
+      await userEvent.click(buttonEdit);
+
+      const modifyButton = await screen.getByRole("button", {
+        name: textButtonModify,
+      });
+
+      expect(modifyButton).toBeInTheDocument();
     });
   });
 });
