@@ -4,6 +4,19 @@ import { PayloadRemove, RouteStructure, RoutesStateStructure } from "./types";
 const initialRoutesState: RoutesStateStructure = {
   routes: [],
   totalRoutes: 0,
+  currentRoute: {
+    id: "",
+    name: "",
+    author: "",
+    authorImage: "",
+    authorName: "",
+    description: "",
+    difficulty: "",
+    distance: 0,
+    ubication: "",
+    photo: "",
+    elevationGain: 0,
+  },
 };
 
 export const RoutesSlice = createSlice({
@@ -34,10 +47,19 @@ export const RoutesSlice = createSlice({
       ...currentState,
       routes: [...currentState.routes, action.payload],
     }),
+    loadCurrentRoute: (
+      currentState: RoutesStateStructure,
+      action: PayloadAction<RouteStructure>
+    ): RoutesStateStructure => ({
+      ...currentState,
+      currentRoute: { ...action.payload },
+    }),
   },
 });
 
 export const { loadRoutes: loadRoutesActionCreator } = RoutesSlice.actions;
 export const { removeRoute: removeRouteActionCreator } = RoutesSlice.actions;
 export const { addRoute: addRouteActionCreator } = RoutesSlice.actions;
+export const { loadCurrentRoute: loadCurrentRouteActionCreator } =
+  RoutesSlice.actions;
 export const routesReducer = RoutesSlice.reducer;
