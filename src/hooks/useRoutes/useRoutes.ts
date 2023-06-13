@@ -142,8 +142,33 @@ const useRoutes = () => {
     },
     [dispatch, requestConfig]
   );
+  const modifyRoute = async (Route: RouteStructure) => {
+    try {
+      const { data } = await axios.put<{ route: RouteStructure }>(
+        `${apiUrl}${paths.routes}/modifyRoute`,
+        Route,
+        requestConfig
+      );
 
-  return { getRoutes, removeRoute, addRoute, getRoute };
+      dispatch(
+        showFeedbackActionCreator({
+          isError: false,
+          message: "The route has been modified succesfully",
+        })
+      );
+
+      return data.route;
+    } catch (error) {
+      dispatch(
+        showFeedbackActionCreator({
+          isError: true,
+          message: "Could not modify the desired route",
+        })
+      );
+    }
+  };
+
+  return { getRoutes, removeRoute, addRoute, getRoute, modifyRoute };
 };
 
 export default useRoutes;
