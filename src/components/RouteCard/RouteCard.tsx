@@ -5,6 +5,7 @@ import { removeRouteActionCreator } from "../../store/routes/routesSlice";
 import { RouteStructure } from "../../store/routes/types";
 import Button from "../Button/Button";
 import RouteCardStyled from "./RouteCardStyled";
+import { paths } from "../../routers/paths/paths";
 
 interface RouteCardProps {
   route: Partial<RouteStructure>;
@@ -19,7 +20,7 @@ const RouteCard = ({ route, isLazy }: RouteCardProps): React.ReactElement => {
   const navigate = useNavigate();
 
   const handleOnDetails = () => {
-    navigate(`/routes/${route.id}`);
+    navigate(`${paths.routes}/${route.id}`);
   };
 
   const handleOnDelete = async () => {

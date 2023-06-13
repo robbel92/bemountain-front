@@ -3,12 +3,13 @@ import PageNotFoundStyled from "./PageNotFoundStyled";
 import Header from "../../components/Header/Header";
 import ContainerStyled from "../../components/shared/ContainerStyled";
 import Button from "../../components/Button/Button";
+import { paths } from "../../routers/paths/paths";
 
 const PageNotFound = (): React.ReactElement => {
   const navigate = useNavigate();
 
   const handleOnClick = () => {
-    navigate("/home");
+    navigate(paths.routes);
   };
 
   return (

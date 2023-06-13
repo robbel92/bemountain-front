@@ -1,6 +1,6 @@
 export interface pathsStructure {
   login: string;
-  home: string;
+  createForm: string;
   user: string;
   routes: string;
 }

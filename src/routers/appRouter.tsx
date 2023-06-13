@@ -29,7 +29,7 @@ const routes: RouteObject[] = [
         ),
       },
       {
-        path: paths.home,
+        path: paths.routes,
 
         element: (
           <Suspense>
@@ -38,12 +38,20 @@ const routes: RouteObject[] = [
         ),
       },
       {
-        path: "/form",
-        element: <CreateRoutePage />,
+        path: paths.createForm,
+        element: (
+          <Suspense>
+            <CreateRoutePage />
+          </Suspense>
+        ),
       },
       {
         path: "/routes/:routeId",
-        element: <RouteDetailsPage />,
+        element: (
+          <Suspense>
+            <RouteDetailsPage />
+          </Suspense>
+        ),
       },
       {
         path: "/*",

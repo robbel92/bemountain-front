@@ -29,7 +29,7 @@ const LoginPage = (): React.ReactElement => {
         } as UserTokenStructure)
       );
       setLocalStorageKey("token", token);
-      navigate(paths.home);
+      navigate(paths.routes);
     }
   };
 

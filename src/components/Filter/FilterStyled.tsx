@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const FilterStyled = styled.select`
   padding: 0.625rem 0.625rem;
-  width: 340px;
+  width: 350px;
   backdrop-filter: blur(50px);
   background: transparent;
   color: #ffffff;

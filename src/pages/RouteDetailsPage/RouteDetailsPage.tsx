@@ -9,18 +9,20 @@ import RouteDetailsPageStyled from "./RouteDetailsPageStyled";
 import Header from "../../components/Header/Header";
 import ContainerStyled from "../../components/shared/ContainerStyled";
 import Button from "../../components/Button/Button";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { paths } from "../../routers/paths/paths";
 
 const RouteDetailsPage = (): React.ReactElement => {
   const { getRoute, removeRoute } = useRoutes();
   const dispatch = useAppDispatch();
   const route = useAppSelector((state) => state.routesStore.currentRoute);
   const { id } = useAppSelector((state) => state.userStore);
+  const navigate = useNavigate();
 
   const handleOnDelete = async () => {
     await removeRoute(route.id);
-
     dispatch(removeRouteActionCreator({ routeId: route.id }));
+    navigate(paths.routes);
   };
 
   const { pathname } = useLocation();
