@@ -1,4 +1,7 @@
-import { routesMock } from "../../../mocks/routeMocks/routeMocks";
+import {
+  routesMock,
+  routesNamesMock,
+} from "../../../mocks/routeMocks/routeMocks";
 import { loadRoutesActionCreator, routesReducer } from "../routesSlice";
 import { RouteStructure, RoutesStateStructure } from "../types";
 
@@ -10,6 +13,7 @@ describe("Given a loadRoutes reducer", () => {
       const currentEmptyRoutesState: RoutesStateStructure = {
         routes: currentEmptyRoutes,
         totalRoutes: 0,
+        currentRoute: routesNamesMock[0],
       };
 
       const loadRoutesActionResult = loadRoutesActionCreator({

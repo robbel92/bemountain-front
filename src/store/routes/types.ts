@@ -15,6 +15,7 @@ export interface RouteStructure {
 export interface RoutesStateStructure {
   routes: Partial<RouteStructure>[];
   totalRoutes: number;
+  currentRoute: RouteStructure;
 }
 
 export interface PayloadRemove {

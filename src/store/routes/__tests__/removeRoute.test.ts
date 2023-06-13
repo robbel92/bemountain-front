@@ -8,6 +8,7 @@ describe("Given a removeRoute reducer", () => {
       const currentRoutesState: RoutesStateStructure = {
         routes: routesNamesMock,
         totalRoutes: routesNamesMock.length,
+        currentRoute: routesNamesMock[0],
       };
       routesNamesMock.shift();
       const expectedNewRoutesState = {

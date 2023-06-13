@@ -16,7 +16,13 @@ describe("Given a Pagination component", () => {
           onClickNextPage={() => ({})}
           onClickPreviousPage={() => ({})}
         />,
-        { routesStore: { routes: routesMock, totalRoutes: routesMock.length } }
+        {
+          routesStore: {
+            routes: routesMock,
+            totalRoutes: routesMock.length,
+            currentRoute: routesMock[0],
+          },
+        }
       );
 
       const nextButton = screen.getByRole("button", { name: textNextButton });

@@ -10,13 +10,15 @@ interface FormProps {
 
 const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
   const { image, name } = useAppSelector((state) => state.userStore);
+  let distance0;
+  let elevatonGain0;
   const initialRouteData = {
     name: "",
     difficulty: "",
     photo: "",
     ubication: "",
-    distance: 0,
-    elevationGain: 0,
+    distance: distance0,
+    elevationGain: elevatonGain0,
     description: "",
   };
   const [routeData, setRouteData] =

@@ -1,12 +1,25 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { PayloadRemove, RouteStructure, RoutesStateStructure } from "./types";
 
-const initialRoutesState: RoutesStateStructure = {
+export const initialRoutesState: RoutesStateStructure = {
   routes: [],
   totalRoutes: 0,
+  currentRoute: {
+    id: "",
+    name: "",
+    author: "",
+    authorImage: "",
+    authorName: "",
+    description: "",
+    difficulty: "",
+    distance: 0,
+    ubication: "",
+    photo: "",
+    elevationGain: 0,
+  },
 };
 
-export const RoutesSlice = createSlice({
+export const routesSlice = createSlice({
   name: "routes",
   initialState: initialRoutesState,
   reducers: {
@@ -34,10 +47,19 @@ export const RoutesSlice = createSlice({
       ...currentState,
       routes: [...currentState.routes, action.payload],
     }),
+    loadCurrentRoute: (
+      currentState: RoutesStateStructure,
+      action: PayloadAction<RouteStructure>
+    ): RoutesStateStructure => ({
+      ...currentState,
+      currentRoute: { ...action.payload },
+    }),
   },
 });
 
-export const { loadRoutes: loadRoutesActionCreator } = RoutesSlice.actions;
-export const { removeRoute: removeRouteActionCreator } = RoutesSlice.actions;
-export const { addRoute: addRouteActionCreator } = RoutesSlice.actions;
-export const routesReducer = RoutesSlice.reducer;
+export const { loadRoutes: loadRoutesActionCreator } = routesSlice.actions;
+export const { removeRoute: removeRouteActionCreator } = routesSlice.actions;
+export const { addRoute: addRouteActionCreator } = routesSlice.actions;
+export const { loadCurrentRoute: loadCurrentRouteActionCreator } =
+  routesSlice.actions;
+export const routesReducer = routesSlice.reducer;
