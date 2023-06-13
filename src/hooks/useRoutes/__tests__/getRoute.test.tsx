@@ -17,7 +17,7 @@ describe("Given a getRoute function", () => {
   } = renderHook(() => useRoutes(), { wrapper: wrapWithProviders });
 
   describe("When it is called with an existing route id", () => {
-    test("Then it should appears a feedback component with message 'Route has been modified succesfully'", async () => {
+    test("Then it should returns a route'", async () => {
       server.resetHandlers(...handlers);
 
       const routeId = "6487782f40386e8006e3dad9";
@@ -28,11 +28,9 @@ describe("Given a getRoute function", () => {
 
       renderWithProviders(<RouterProvider router={router} />);
 
-      await getRoute(routeId);
+      const response = await getRoute(routeId);
 
-      const message = await screen.getByLabelText("feedback message");
-
-      expect(message).toHaveTextContent("Route has been modified succesfully");
+      expect(response).toHaveProperty(["id"]);
     });
   });
 
@@ -52,9 +50,7 @@ describe("Given a getRoute function", () => {
 
       const message = await screen.getByLabelText("feedback message");
 
-      expect(message).toHaveTextContent(
-        "Sorry, the route could not be modified"
-      );
+      expect(message).toHaveTextContent("Could not give the desired route");
     });
   });
 });

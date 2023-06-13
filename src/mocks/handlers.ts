@@ -7,6 +7,7 @@ import {
   routesDifficultyMock,
   routesMock,
   routesMockSkipZero,
+  routesNamesMock,
 } from "./routeMocks/routeMocks";
 
 export const handlers = [
@@ -32,11 +33,9 @@ export const handlers = [
   }),
 
   rest.get(`${apiUrl}${paths.routes}/:routeId`, (_req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json({ message: "The route has been successfully modified" })
-    );
+    return res(ctx.status(200), ctx.json({ route: routesNamesMock[0] }));
   }),
+
   rest.post(`${apiUrl}${paths.routes}/addRoute`, (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json(routeMock));
   }),
@@ -81,6 +80,9 @@ export const variantsHandlers = [
         totalRoutes: routesMockSkipZero.length,
       })
     );
+  }),
+  rest.get(`${apiUrl}/routes/${routesNamesMock[0].id}`, (_req, res, ctx) => {
+    return res(ctx.status(200), ctx.json({ route: routesNamesMock[0] }));
   }),
 ];
 

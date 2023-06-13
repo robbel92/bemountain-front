@@ -28,7 +28,7 @@ describe("Given a PageNotFound page ", () => {
       const text = "BACK HOME";
       const routes: RouteObject[] = [
         { path: "/", element: <PageNotFound /> },
-        { path: paths.home },
+        { path: paths.routes },
       ];
 
       const routerPageNotFound = createMemoryRouter(routes);

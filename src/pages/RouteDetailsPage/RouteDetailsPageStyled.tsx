@@ -1,26 +1,44 @@
 import styled from "styled-components";
 
-const RouteCardStyled = styled.article`
+const RouteDetailsPageStyled = styled.main`
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(115, 115, 120, 0.52),
+      rgba(0, 0, 0, 0.73)
+    ),
+    url("/media/background-login-page3.webp");
+  background-size: cover;
+  justify-content: center;
+
   button {
-    background-color: transparent;
+    background: transparent;
+  }
+
+  .details {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .description {
+    font-size: 20px;
+    color: white;
   }
 
   .card-container {
     display: flex;
     justify-content: center;
-    border: solid 5px #e9c696bc;
     border-radius: 5px;
 
     &__title {
-      position: absolute;
-
       border-radius: 3px;
       text-transform: uppercase;
       white-space: pre-line;
       color: white;
-      width: 340px;
       padding: 20px;
-      background-image: linear-gradient(rgb(0, 0, 9), rgb(0 0 0 / 62%));
       border-bottom: solid 1px #ffffff78;
       font-size: 18px;
       letter-spacing: 0.15px;
@@ -57,9 +75,8 @@ const RouteCardStyled = styled.article`
     overflow: hidden;
     width: 60px;
     height: 60px;
-
     border-radius: 60px;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 1);
+    box-shadow: 0px 0px 5px 4px #dfdada;
   }
 
   .difficulty {
@@ -93,6 +110,8 @@ const RouteCardStyled = styled.article`
   }
   .photo-data {
     grid-area: 1 / 3 / 1 / 4;
+    justify-self: center;
   }
 `;
-export default RouteCardStyled;
+
+export default RouteDetailsPageStyled;

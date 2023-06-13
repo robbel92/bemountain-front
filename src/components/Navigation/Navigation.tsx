@@ -18,7 +18,11 @@ const Navigation = (): React.ReactElement => {
 
   return (
     <NavigationStyled>
-      <NavLink to="/form" aria-label="to create page" className="logo__create">
+      <NavLink
+        to={paths.createForm}
+        aria-label="to create page"
+        className="logo__create"
+      >
         <img
           src="/media/crear.svg"
           alt="icon of a plus sign indicating create or add"
@@ -26,7 +30,11 @@ const Navigation = (): React.ReactElement => {
           height={48}
         />
       </NavLink>
-      <NavLink to="/home" aria-label="to home page" className="logo__home">
+      <NavLink
+        to={paths.routes}
+        aria-label="to home page"
+        className="logo__home"
+      >
         <img
           src="/media/logo-home.svg"
           alt="a logo with the text home"

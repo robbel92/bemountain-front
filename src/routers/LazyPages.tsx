@@ -11,3 +11,11 @@ export const LazyRoutesPage = lazy(
 export const LazyPageNotFoundPage = lazy(
   () => import("../pages/PageNotFound/PageNotFound.js")
 );
+
+export const LazyRouteDetailsPage = lazy(
+  () => import("../pages/RouteDetailsPage/RouteDetailsPage.js")
+);
+
+export const LazyCreateRoutePage = lazy(
+  () => import("../pages/CreateRoutePage/CreateRoutePage.js")
+);
