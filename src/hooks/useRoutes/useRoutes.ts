@@ -142,7 +142,7 @@ const useRoutes = () => {
     },
     [dispatch, requestConfig]
   );
-  const modifyRoute = async (Route: Partial<RouteStructure>) => {
+  const modifyRoute = async (Route: RouteStructure) => {
     try {
       const { data } = await axios.put<{ route: RouteStructure }>(
         `${apiUrl}${paths.routes}/modifyRoute`,
@@ -153,7 +153,7 @@ const useRoutes = () => {
       dispatch(
         showFeedbackActionCreator({
           isError: false,
-          message: "The route has been modify succesfully",
+          message: "The route has been modified succesfully",
         })
       );
 

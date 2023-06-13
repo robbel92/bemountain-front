@@ -39,6 +39,9 @@ export const handlers = [
   rest.post(`${apiUrl}${paths.routes}/addRoute`, (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json(routeMock));
   }),
+  rest.put(`${apiUrl}${paths.routes}/modifyRoute`, (_req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(routeMock));
+  }),
 ];
 
 export const errorHandlers = [
@@ -64,6 +67,9 @@ export const errorHandlers = [
       ctx.status(404),
       ctx.json({ message: "Could not add the desired route" })
     );
+  }),
+  rest.put(`${apiUrl}${paths.routes}/modifyRoute`, (_req, res, ctx) => {
+    return res(ctx.status(404), ctx.json(routeMock));
   }),
 ];
 
