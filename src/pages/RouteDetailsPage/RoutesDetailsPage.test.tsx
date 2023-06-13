@@ -8,6 +8,7 @@ import Layout from "../../components/Layout/Layout";
 import { Navigate, RouterProvider, createMemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import RoutesPage from "../RoutesPage/RoutesPage";
+import ModifyRoutePage from "../ModifyRoutePage/ModifyRoutePage";
 
 describe("Given a RoutesDetailsPage", () => {
   describe("When it is rendered", () => {
@@ -94,6 +95,46 @@ describe("Given a RoutesDetailsPage", () => {
           )
       );
       await userEvent.click(deleteButton);
+    });
+  });
+
+  describe("When it is rendered and the user clicks the edit button", () => {
+    test("Then it should show a page for modify the route", async () => {
+      server.resetHandlers(...variantsHandlers);
+      const textButtonEdit = "edit";
+      const textButtonModify = "MODIFY ROUTE";
+
+      renderWithProviders(
+        wrapWithRouter(
+          <RouteDetailsPage />,
+          <ModifyRoutePage />,
+          "/routes/modifyRoute"
+        ),
+        {
+          routesStore: {
+            currentRoute: routesNamesMock[0],
+            routes: routesNamesMock,
+            totalRoutes: routesNamesMock.length,
+          },
+          userStore: {
+            id: routesNamesMock[0].author,
+            image: "",
+            name: "Administrator",
+            token: "token",
+            isLogged: true,
+          },
+        }
+      );
+
+      const buttonEdit = await screen.getByLabelText(textButtonEdit);
+
+      await userEvent.click(buttonEdit);
+
+      const modifyButton = await screen.getByRole("button", {
+        name: textButtonModify,
+      });
+
+      expect(modifyButton).toBeInTheDocument();
     });
   });
 });

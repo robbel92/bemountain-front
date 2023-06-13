@@ -5,21 +5,23 @@ import { RouteStructure } from "../../store/routes/types";
 import { useAppSelector } from "../../store";
 
 interface FormProps {
-  actionOnSubmit: (newRoute: Partial<RouteStructure>) => void;
+  actionOnSubmit: (route: RouteStructure | Partial<RouteStructure>) => void;
+  route?: RouteStructure;
 }
 
-const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
-  const { image, name } = useAppSelector((state) => state.userStore);
+const Form = ({ actionOnSubmit, route }: FormProps): React.ReactElement => {
+  const { image, name, id } = useAppSelector((state) => state.userStore);
   let distance0;
   let elevatonGain0;
+
   const initialRouteData = {
-    name: "",
-    difficulty: "",
-    photo: "",
-    ubication: "",
-    distance: distance0,
-    elevationGain: elevatonGain0,
-    description: "",
+    name: route ? route.name : "",
+    difficulty: route ? route.difficulty : "",
+    photo: route ? route.photo : "",
+    ubication: route ? route.ubication : "",
+    distance: route ? route.distance : distance0,
+    elevationGain: route ? route.elevationGain : elevatonGain0,
+    description: route ? route.description : "",
   };
   const [routeData, setRouteData] =
     useState<Partial<RouteStructure>>(initialRouteData);
@@ -30,7 +32,17 @@ const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
 
   const handleOnSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    actionOnSubmit({ ...routeData, authorImage: image, authorName: name });
+    actionOnSubmit(
+      !route
+        ? { ...routeData, authorImage: image, authorName: name }
+        : {
+            ...routeData,
+            authorImage: image,
+            authorName: name,
+            id: (route as unknown as RouteStructure).id,
+            author: id,
+          }
+    );
     setRouteData(initialRouteData);
   };
 
@@ -108,7 +120,7 @@ const Form = ({ actionOnSubmit }: FormProps): React.ReactElement => {
         value={routeData.description}
       />
       <Button className="form-button" disabled={!isComplete}>
-        ADD ROUTE
+        {route ? "MODIFY ROUTE" : "ADD ROUTE"}
       </Button>
     </FormStyled>
   );

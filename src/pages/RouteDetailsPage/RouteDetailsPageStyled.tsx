@@ -86,6 +86,7 @@ const RouteDetailsPageStyled = styled.main`
   .difficulty-data {
     font-size: 16px;
     grid-area: 1 / 2 / 2 / 3;
+    word-break: break-word;
   }
   .distance {
     font-size: 20px;
@@ -94,6 +95,7 @@ const RouteDetailsPageStyled = styled.main`
   .distance-data {
     font-size: 16px;
     grid-area: 2 / 2 / 3 / 3;
+    word-break: break-word;
   }
   .ubication {
     font-size: 20px;
@@ -102,6 +104,7 @@ const RouteDetailsPageStyled = styled.main`
   .ubication-data {
     font-size: 16px;
     grid-area: 3 / 2 / 4 / 3;
+    word-break: break-word;
   }
   .photo {
     grid-area: 1 / 3 / 4 / 4;

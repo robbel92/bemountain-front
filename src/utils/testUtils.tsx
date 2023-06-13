@@ -5,7 +5,11 @@ import { PropsWithChildren } from "react";
 import { render } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
 import theme from "../styles/theme";
-import { RouterProvider, createMemoryRouter } from "react-router-dom";
+import {
+  RouteObject,
+  RouterProvider,
+  createMemoryRouter,
+} from "react-router-dom";
 import GlobalStyle from "../styles/GlobalStyle";
 
 export const renderWithProviders = (
@@ -26,12 +30,17 @@ export const renderWithProviders = (
   render(ui, { wrapper: Wrapper });
 };
 
-export const wrapWithRouter = (ui: React.ReactElement) => {
-  const routes = [
+export const wrapWithRouter = (
+  ui: React.ReactElement,
+  ui2?: React.ReactElement,
+  path2?: string
+) => {
+  const routes: RouteObject[] = [
     {
       path: "/",
       element: ui,
     },
+    ui2 ? { path: path2, element: ui2 } : {},
   ];
 
   const router = createMemoryRouter(routes);

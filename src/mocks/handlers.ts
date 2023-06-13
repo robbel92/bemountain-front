@@ -25,15 +25,15 @@ export const handlers = [
     );
   }),
 
+  rest.get(`${apiUrl}${paths.routes}/:routeId`, (_req, res, ctx) => {
+    return res(ctx.status(200), ctx.json({ route: routesNamesMock[0] }));
+  }),
+
   rest.delete(`${apiUrl}${paths.routes}/:routeId`, (_req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({ message: "The route has been successfully deleted" })
     );
-  }),
-
-  rest.get(`${apiUrl}${paths.routes}/:routeId`, (_req, res, ctx) => {
-    return res(ctx.status(200), ctx.json({ route: routesNamesMock[0] }));
   }),
 
   rest.post(`${apiUrl}${paths.routes}/addRoute`, (_req, res, ctx) => {
@@ -86,9 +86,6 @@ export const variantsHandlers = [
         totalRoutes: routesMockSkipZero.length,
       })
     );
-  }),
-  rest.get(`${apiUrl}/routes/${routesNamesMock[0].id}`, (_req, res, ctx) => {
-    return res(ctx.status(200), ctx.json({ route: routesNamesMock[0] }));
   }),
 ];
 

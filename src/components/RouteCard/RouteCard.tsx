@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import useRoutes from "../../hooks/useRoutes/useRoutes";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { removeRouteActionCreator } from "../../store/routes/routesSlice";
+import {
+  loadCurrentRouteActionCreator,
+  removeRouteActionCreator,
+} from "../../store/routes/routesSlice";
 import { RouteStructure } from "../../store/routes/types";
 import Button from "../Button/Button";
 import RouteCardStyled from "./RouteCardStyled";
@@ -21,6 +24,10 @@ const RouteCard = ({ route, isLazy }: RouteCardProps): React.ReactElement => {
 
   const handleOnDetails = () => {
     navigate(`${paths.routes}/${route.id}`);
+  };
+  const handleOnModify = () => {
+    dispatch(loadCurrentRouteActionCreator(route as RouteStructure));
+    navigate(`${paths.routes}/modifyRoute`);
   };
 
   const handleOnDelete = async () => {
@@ -50,7 +57,11 @@ const RouteCard = ({ route, isLazy }: RouteCardProps): React.ReactElement => {
       </div>
       {route.author === id && (
         <div className="card-buttons">
-          <Button aria_label="create" type="button">
+          <Button
+            aria_label="edit"
+            type="button"
+            actionOnClick={handleOnModify}
+          >
             <img
               src="/media/icon-edit.svg"
               alt="icon with pencil edit"

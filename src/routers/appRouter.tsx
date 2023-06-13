@@ -3,12 +3,13 @@ import App from "../components/App/App";
 import { paths } from "./paths/paths";
 import { Suspense } from "react";
 import {
+  LazyCreateRoutePage,
   LazyLoginPage,
+  LazyModifyRoutePage,
   LazyPageNotFoundPage,
+  LazyRouteDetailsPage,
   LazyRoutesPage,
 } from "./LazyPages";
-import CreateRoutePage from "../pages/CreateRoutePage/CreateRoutePage";
-import RouteDetailsPage from "../pages/RouteDetailsPage/RouteDetailsPage";
 
 const routes: RouteObject[] = [
   {
@@ -41,7 +42,7 @@ const routes: RouteObject[] = [
         path: paths.createForm,
         element: (
           <Suspense>
-            <CreateRoutePage />
+            <LazyCreateRoutePage />
           </Suspense>
         ),
       },
@@ -49,7 +50,15 @@ const routes: RouteObject[] = [
         path: "/routes/:routeId",
         element: (
           <Suspense>
-            <RouteDetailsPage />
+            <LazyRouteDetailsPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/routes/modifyRoute",
+        element: (
+          <Suspense>
+            <LazyModifyRoutePage />
           </Suspense>
         ),
       },
