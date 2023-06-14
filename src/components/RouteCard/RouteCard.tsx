@@ -50,7 +50,7 @@ const RouteCard = ({ route, isLazy }: RouteCardProps): React.ReactElement => {
           src={route.photo}
           alt={`Photography of ${route.name} mountain route`}
           width="340"
-          height="453"
+          height="450"
           className="card-container__image"
           loading={isLazy}
         />
