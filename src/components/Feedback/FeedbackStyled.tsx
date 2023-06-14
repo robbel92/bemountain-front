@@ -14,6 +14,7 @@ const FeedbackStyled = styled.div`
   .feedback {
     &__message {
       display: flex;
+      text-align: cetner;
       padding: 50px;
       font-size: 20px;
       font-weight: 600;
@@ -23,6 +24,11 @@ const FeedbackStyled = styled.div`
       align-items: center;
       border: solid 5px darkgreen;
       gap: 30px;
+    }
+
+    &__text {
+      text-align: center;
+      font-weight: 800;
     }
 
     &__button {

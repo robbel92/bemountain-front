@@ -7,6 +7,14 @@ const RoutesPageStyled = styled.main`
   background-size: cover;
   justify-content: center;
 
+  .list-title {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    height: 115px;
+  }
+
   .title-page {
     color: white;
     font-size: 40px;

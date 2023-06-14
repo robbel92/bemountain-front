@@ -21,7 +21,9 @@ const Feedback = (): React.ReactElement => {
       tabIndex={0}
     >
       <div className={`feedback__message ${isError ? "error__message" : ""}`}>
-        <span aria-label="feedback message">{message}</span>
+        <span aria-label="feedback message" className="feedback__text">
+          {message}
+        </span>
         <Button
           actionOnClick={handleOnClose}
           className={`feedback__button ${isError ? "error__button" : ""}`}

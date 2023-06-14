@@ -55,8 +55,8 @@ const RouteDetailsPage = (): React.ReactElement => {
             <img
               src={route.photo}
               alt={`Photography of ${route.name} mountain route`}
-              width="340"
-              height="453"
+              width="360"
+              height="480"
               className="card-container__image"
               loading="eager"
             />
@@ -95,9 +95,12 @@ const RouteDetailsPage = (): React.ReactElement => {
               {route.difficulty}
             </span>
             <h2 className="distance">Distance</h2>
-            <span className="distance-data">{route.distance}Km</span>
+            <span className="distance-data">{route.distance} Km</span>
+            <h2 className="elevationGain">Elevation Gain</h2>
+            <span className="elevationGain-data">{route.elevationGain} m</span>
             <h2 className="ubication">Ubication</h2>
             <span className="ubication-data">{route.ubication}</span>
+
             <img
               src={route.authorImage}
               alt={`photography of ${route.authorName}`}
