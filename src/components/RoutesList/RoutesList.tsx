@@ -13,7 +13,7 @@ const RoutesList = (): React.ReactElement => {
           <li className="routes__card" key={route.id}>
             <RouteCard
               route={route}
-              isLazy={index < 2 ? "lazy" : "eager"}
+              isLazy={index < 2 ? "eager" : "lazy"}
             ></RouteCard>
           </li>
         ))}

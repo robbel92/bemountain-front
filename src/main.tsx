@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "../node_modules/@fontsource/montserrat/400.css";
-import "../node_modules/@fontsource/montserrat/600.css";
-import "../node_modules/@fontsource/montserrat/800.css";
+import "@fontsource/montserrat";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import { ThemeProvider } from "styled-components";
