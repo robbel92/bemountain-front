@@ -8,7 +8,7 @@ const RouteDetailsPageStyled = styled.main`
       rgba(115, 115, 120, 0.52),
       rgba(0, 0, 0, 0.73)
     ),
-    url("/media/background-login-page3.webp");
+    url("/media/background.webp");
   background-size: cover;
   justify-content: center;
 
@@ -76,7 +76,7 @@ const RouteDetailsPageStyled = styled.main`
     width: 60px;
     height: 60px;
     border-radius: 60px;
-    box-shadow: 0px 0px 5px 4px #dfdada;
+    box-shadow: 0px 0px 5px 4px #000000;
   }
 
   .difficulty {

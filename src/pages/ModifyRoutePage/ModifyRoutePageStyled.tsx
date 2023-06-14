@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ModifyRoutePageStyled = styled.main`
-  background-image: url("/media/background-login-page3.webp");
+  background-image: url("/media/background.webp");
   background-size: cover;
   display: flex;
   flex-direction: column;

@@ -28,7 +28,7 @@ const ModifyRoutePage = (): React.ReactElement => {
     <ModifyRoutePageStyled className="modify">
       <Header />
       <ContainerStyled>
-        <h1 className="modify__title">Modify your route</h1>;
+        <h1 className="modify__title">Modify your route</h1>
         <Form actionOnSubmit={actionOnSubmit} route={currentRoute} />
       </ContainerStyled>
     </ModifyRoutePageStyled>

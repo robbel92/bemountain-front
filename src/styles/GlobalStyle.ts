@@ -11,6 +11,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${(props) => props.theme.fonts.primary_title};
   }
 
+  
+
   h1,
   h2,
   h3,
