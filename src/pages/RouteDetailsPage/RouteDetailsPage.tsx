@@ -41,6 +41,12 @@ const RouteDetailsPage = (): React.ReactElement => {
           return;
         }
         dispatch(loadCurrentRouteActionCreator(route));
+
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.href = route.photo;
+        link.as = "image";
+        document.head.appendChild(link);
       }
     })();
   }, [dispatch, getRoute, isLogged, routeId]);
@@ -59,6 +65,7 @@ const RouteDetailsPage = (): React.ReactElement => {
               height="480"
               className="card-container__image"
               loading="eager"
+              decoding="async"
             />
           </div>
           {route.author === id && (
