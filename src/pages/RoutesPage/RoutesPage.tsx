@@ -51,14 +51,17 @@ const RoutesPage = (): React.ReactElement => {
           loadRoutesActionCreator({ routes: routes, totalRoutes: totalRoutes })
         );
 
-        const preconnectElement = await document.createElement("link");
-        preconnectElement.rel = "preload";
-        preconnectElement.as = "image";
-        preconnectElement.href = routes[0].photo;
-
         const parent = document.head;
         const firstChild = document.head.firstChild;
-        parent.insertBefore(preconnectElement, firstChild);
+
+        for (let i = 0; i < 5; i++) {
+          const preconnectElement = document.createElement("link");
+          preconnectElement.rel = "preload";
+          preconnectElement.as = "image";
+          preconnectElement.href = routes[i].photo;
+
+          parent.insertBefore(preconnectElement, firstChild);
+        }
       }
     })();
   }, [dispatch, filterValue, getRoutes, isLogged, limit, skip]);
