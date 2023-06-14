@@ -67,12 +67,15 @@ const RoutesPage = (): React.ReactElement => {
     <RoutesPageStyled>
       <Header />
       <ContainerStyled>
-        <h2 className="title-page">World Routes</h2>
-        <Filter
-          setFilterValue={setFilterValue}
-          setSkip={setSkip}
-          setCount={setCount}
-        />
+        <div className="list-title">
+          <h2 className="title-page">World Routes</h2>
+          <Filter
+            setFilterValue={setFilterValue}
+            setSkip={setSkip}
+            setCount={setCount}
+          />
+        </div>
+
         <RoutesList />
         <Pagination
           count={count}

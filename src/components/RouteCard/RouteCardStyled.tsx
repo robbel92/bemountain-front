@@ -41,61 +41,72 @@ const RouteCardStyled = styled.article`
     justify-content: center;
     justify-content: space-evenly;
   }
+
   .card-data {
     display: grid;
     color: white;
     padding: 15px;
     width: 100%;
-    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     align-items: center;
-    gap: 15px 15px;
+    gap: 10px 10px;
     border-radius: 0 0 6px 6px;
     width: 100%;
   }
+
   .photo {
-    overflow: hidden;
     width: 60px;
     height: 60px;
-
     border-radius: 60px;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 1);
   }
 
   .difficulty {
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 600;
     grid-area: 1 / 1 / 2 / 2;
   }
+
   .difficulty-data {
     font-size: 16px;
     grid-area: 1 / 2 / 2 / 3;
     word-break: break-word;
   }
+
   .distance {
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 600;
     grid-area: 2 / 1 / 3 / 2;
   }
+
   .distance-data {
     font-size: 16px;
     grid-area: 2 / 2 / 3 / 3;
     word-break: break-word;
   }
+
   .ubication {
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 600;
     grid-area: 3 / 1 / 4 / 2;
   }
+
   .ubication-data {
     font-size: 16px;
     grid-area: 3 / 2 / 4 / 3;
-    word-break: break-word;
   }
+
   .photo {
-    grid-area: 1 / 3 / 4 / 4;
+    grid-area: 2 / 3 / 4 / 4;
     justify-self: center;
-    margin-top: 30px;
+    margin-top: 5px;
   }
+
   .photo-data {
-    grid-area: 1 / 3 / 1 / 4;
+    text-align: center;
+    justify-self: center;
+    color: #ef9d7f;
+    grid-area: 2 / 3 / 1 / 4;
   }
 `;
 export default RouteCardStyled;

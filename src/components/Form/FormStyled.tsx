@@ -25,6 +25,12 @@ const FormStyled = styled.form`
     font-family: ${(props) => props.theme.fonts.primary_title};
   }
 
+  textarea {
+    font-size: 16px;
+    overflow-y: scroll;
+    height: 200px;
+  }
+
   select {
     padding: 15px 30px;
     backdrop-filter: blur(50px);
