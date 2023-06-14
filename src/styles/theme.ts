@@ -2,7 +2,7 @@ import { DefaultTheme } from "styled-components";
 
 const theme: DefaultTheme = {
   fonts: {
-    primary_title: "Montserrat",
+    primary_title: "Montserrat , sans-serif",
   },
   colors: {
     background: "#855e42",

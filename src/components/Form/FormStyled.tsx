@@ -22,7 +22,7 @@ const FormStyled = styled.form`
     border-radius: 5px;
     border: 1px solid white;
     font-size: 20px;
-    font-family: "Montserrat";
+    font-family: ${(props) => props.theme.fonts.primary_title};
   }
 
   select {

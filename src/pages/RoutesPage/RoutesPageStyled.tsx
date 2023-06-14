@@ -3,7 +3,7 @@ import styled from "styled-components";
 const RoutesPageStyled = styled.main`
   display: flex;
   flex-direction: column;
-  background-image: url("/media/background-login-page3.webp");
+  background-image: url("/media/background.webp");
   background-size: cover;
   justify-content: center;
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const LoginPageStyled = styled.div`
   min-height: 100vh;
-  background-image: url("/media/background-login-page3.webp");
+  background-image: url("/media/background.webp");
   background-size: cover;
   align-items: center;
   gap: 120px;
