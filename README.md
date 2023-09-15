@@ -7,9 +7,9 @@
 
 Bemount is a web application that allows you to discover and manage mountain routes. You can explore existing routes as well as modify and delete routes that belong to your user.
 
-[PlanTips app](https://bemountain.netlify.app/login)
+[Bemount app](https://bemountain.netlify.app/login)
 
-![Screenshoots of PlanTips app](media/screenshots.webp)
+![Screenshoots of Bemount app](/public/media/screenshots.webp)
 
 ## Features
 
